@@ -8,6 +8,9 @@
 
 <body>
 <?php
+$fietsen = array( 
+   "Capino", "Wilier", "Giant", "Gazelle", "Ghost", "Scott", "Specialized"
+); 
 $telefoonmerken = array(
 				"HTC",
 				"OnePlus",
@@ -62,6 +65,10 @@ print join(", ", $telefoonmerken);
 rsort($telefoonmerken);
 print join(", ", $telefoonmerken);
 ?>
+</div>
+<div id="intro">
+    sort($fietsen);
+print join(", ", $fietsen);
 </div>
 </div>
 </body>
