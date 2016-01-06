@@ -1,71 +1,4 @@
 @charset "UTF-8";
-#menu {
-border : transparent 3px;
-width : 100%;
-height : 50px;
-top : 0;
-margin-bottom : 0;
-margin-left : auto;
-margin-right : auto;
-background-color : #009688;
-}
-#menu ul {
-font-weight : bold;
-list-style : none;
-text-align : center;
-}
-#menu ul li {
-display : inline-block;
-}
-#menu ul li a {
-display : block;
-margin-left : 50px;
-margin-right : 50px;
-margin-bottom : 5px;
-margin-top : -15px;
-text-decoration : none;
-color : #FFFFFF;
-border-bottom : 5px solid #83d0c9;
-border-right : 4px solid #83d0c9;
-padding : 5px 15px 5px 15px;
-background-color : #54b2a9;
-border-radius : 10px;
-text-align : center;
-}
-#menu ul li a:hover {
-background-color : #83d0c9;
-color : inherit;
-border-bottom-color : #54b2a9;
-border-right-color : #54b2a9;
-}
-#menu ul li ul{
- display:none;
- }
-#menu ul li:hover ul{
- display:block;
- position:absolute;
- }
-#menu ul li li{
- font-size:80%;
- clear:both;
- width:200px;
- position:relative;
- float:left;
- margin-bottom:1px;
- margin-top: 8px;
- border: 0px
- }
-#menu ul li ul li a:hover{
-background-color : #83d0c9;
-color : inherit;
-border-bottom-color : #54b2a9;
-border-right-color : #54b2a9;}
-/*#menu ul li:hover li a{
-color : #FFFFFF;
-padding : 5px 15px 5px 15px;
-background-color : #2D9DC9;
-border-radius : 10px;
-}*/
 #container {
 border : solid 3px;
 margin-left : auto;
@@ -100,17 +33,6 @@ float : left;
 margin-left : 25px;
 border-radius : 5px;
 }
-#intro_tabel {
-border : solid 3px;
-padding : 20px;
-width : 600px;
-height : 30px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
-border-radius : 5px;
-margin-bottom : 15px;
-}
 #afbeelding {
 border : solid 3px;
 width : 290px;
@@ -119,149 +41,6 @@ background-color : #65c3ba;
 float : right;
 margin-right : 25px;
 border-radius : 5px;
-}
-#rechts_tekst {
-border : solid 3px;
-padding : 20px;
-width : 250px;
-height : 250px;
-background-color : #65c3ba;
-float : right;
-margin-right : 25px;
-border-radius : 5px;
-}
-#tabel {
-border : solid 3px;
-padding : 20px;
-width : 600px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
-border-radius : 5px;
-}
-#tussenruimte2 {
-border : solid 0;
-padding : 5px;
-width : 650px;
-height : 218px;
-background-color : #FFFFFF;
-float : left;
-margin-left : 1px;
-border-radius : 5px;
-}
-#credits {
-border : solid 1px;
-padding : 5px;
-width : 144px;
-height : 20px;
-background-color : #FFFFFF;
-float : right;
-margin-right : 0;
-border-radius : 5px;
-}
-#Hardware {
-border : solid 3px;
-padding : 20px;
-width : 600px;
-height : 500px;
-background-color : #A1CCF4;
-float : left;
-margin-left : 25px;
-border-radius : 5px;
- overflow: auto;
-}
-#kopje{
-margin : 0px;
-}
-#paragraaf{
-margin : 0px;
-margin-bottom : 10px;
-}
-#php {
-border : solid 3px;
-padding : 20px;
-width : 265px;
-height : 180px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
-border-radius : 5px;
-}
-#tijdrekenen{
-border : solid 3px;
-padding : 20px;
-width : 600px;
-height : 220px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
-border-radius : 5px;
-margin-top : 25px;
-}
-#php2 {
-border : solid 3px;
-padding : 20px;
-width : 265px;
-height : 220px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
-border-radius : 5px;
-margin-top : 25px;
-}
-#grootphp{
-border : solid 3px;
-padding : 20px;
-width : 600px;
-height : 220px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
-border-radius : 5px;
-}
-#tijdtekst{
-width : 200px;
-height : 100px;
-margin : 20 px;
-float : right;
-}
-#tijdvraag{
-width : 200px;
-height : 100px;
-margin : 20 px;
-}
-#iframe{
-border : none;
-margin-left : auto;
-margin-right : auto;
-margin-top : 70px;
-padding : 10px;
-width : 700px;
-height : 700px;
-border-radius : 10px;
-background-color : #ffffff;
-}
-#volgende{
-border : solid 1px;
-padding : 5px;
-width : 60px;
-height : 20px;
-background-color : #FFFFFF;
-float : right;
-margin-left : 320px;
-border-radius : 5px;
-margin-top : 10px
-}
-#terug{
-border : solid 1px;
-padding : 5px;
-width : 60px;
-height : 20px;
-background-color : #FFFFFF;
-float : right;
-margin-left : 320px;
-border-radius : 5px;
-margin-top : 10px
 }
 #array {
 border : solid 3px;
@@ -285,24 +64,8 @@ margin-right : 25px;
 margin-top : 25px;
 border-radius : 5px;
 }
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-	background-color:#FFFFFF ;
-}
-th, td {
-    padding: 5px;
-    text-align: center;
-}
-table{
-height: 150px;
-}
 body {
 margin : 0;
 padding : 0;
 background-image : url("wallpaper.jpg");
-}
-div.pos_fixed {
-position : fixed;
-top : 0;
 }

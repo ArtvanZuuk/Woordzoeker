@@ -21,24 +21,6 @@ $telefoonmerken = array(
 ?>
 
 
-<div id=menu class=pos_fixed>
-<ul>
-<li><a href=http://goo.gl/XhsEBg>Hoofdpagina</a></li>
-<li><a href=hobbys.html>Hobby's</a></li>
-<li><a href=portfolio.html>Portfolio</a>
-	<ul class=subMenu>
-		<li><a href=favicon.html>Favicon</a></li>
-		<li><a href=tabel.html>Tabel</a></li>
-		<li><a href=contact.html>Formulier</a></li>
-		<li><a href=nfc.html>Hardware</a></li>
-		<li><a href=photoshop.html>Keuzeopdracht</a></li>
-		<li><a href=PHP.php>PHP</a></li>
-		<li><a href=Arrays.php>Arrays</a></li>
-	</ul>
-</li>
-<li><a href=contact.html>Contact</a></li>	
-</ul>
-</div>
 
 <div id=container>
 <div id=titel>Arrays</div>
@@ -83,9 +65,6 @@ print join(", ", $telefoonmerken);
 rsort($telefoonmerken);
 print join(", ", $telefoonmerken);
 ?>
-</div>
-<div id=volgende>
-<a href=arrays2.php>volgende</a>
 </div>
 </div>
 </body>
