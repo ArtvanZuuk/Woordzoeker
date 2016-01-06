@@ -66,9 +66,13 @@ rsort($telefoonmerken);
 print join(", ", $telefoonmerken);
 ?>
 </div>
-<div id="intro">
+
+<div 
+    <?php
+    id="intro">
     sort($fietsen);
 print join(", ", $fietsen);
+?>
 </div>
 </div>
 </body>
