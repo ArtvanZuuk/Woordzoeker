@@ -9,7 +9,7 @@
 <body>
 <?php
 $fietsen = array( 
-   "Capino", "Wilier", "Giant", "Gazelle", "Ghost", "Scott", "Specialized"
+   "Capino", "Wilier", "Giant", "Gazelle", "Ghost", "Scott", "Specialized", "Puch"
 ); 
 $telefoonmerken = array(
 				"HTC",
@@ -19,7 +19,11 @@ $telefoonmerken = array(
 				"Sony",
 				"Apple",
 				"Huawei",
-				"Kaas"
+				"Oppo",
+                                "Motorola",
+                                "Samsung",
+                                "Kaas"
+                                
 );
 ?>
 <div id=container>
@@ -33,7 +37,10 @@ echo "$telefoonmerken[0] </br>
 	  $telefoonmerken[4] </br>
 	  $telefoonmerken[5] </br>
 	  $telefoonmerken[6] </br>
-	  $telefoonmerken[7]        ";
+          $telefoonmerken[7] </br>
+	  $telefoonmerken[8] </br>
+	  $telefoonmerken[9] </br>
+	  $telefoonmerken[10]        ";
 ?>
 
 </div>
