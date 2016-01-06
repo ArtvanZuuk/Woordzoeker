@@ -67,9 +67,8 @@ print join(", ", $telefoonmerken);
 ?>
 </div>
 
-<div 
+<div id="intro">
     <?php
-    id="intro">
     sort($fietsen);
 print join(", ", $fietsen);
 ?>
