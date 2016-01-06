@@ -5,7 +5,7 @@ margin-left : auto;
 margin-right : auto;
 margin-top : 70px;
 padding : 10px;
-width : 700px;
+width : 1200px;
 height : 700px;
 border-radius : 10px;
 background-color : #ffffff;
@@ -13,8 +13,8 @@ background-color : #ffffff;
 #titel {
 border : solid 3px;
 padding : 20px;
-width : 600px;
-height : 75px;
+width : 1100px;
+height : 50px;
 background-color : #65c3ba;
 float : left;
 margin-left : 25px;
@@ -26,44 +26,15 @@ font-size : 3em;
 #intro {
 border : solid 3px;
 padding : 20px;
-width : 250px;
+width : 225px;
 height : 250px;
 background-color : #65c3ba;
 float : left;
 margin-left : 25px;
-border-radius : 5px;
-}
-#afbeelding {
-border : solid 3px;
-width : 290px;
-height : 290px;
-background-color : #65c3ba;
-float : right;
-margin-right : 25px;
-border-radius : 5px;
-}
-#array {
-border : solid 3px;
-padding : 20px;
-width : 250px;
-height : 160px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
 margin-top : 25px;
 border-radius : 5px;
 }
-#array_rechts {
-border : solid 3px;
-padding : 20px;
-width : 250px;
-height : 160px;
-background-color : #65c3ba;
-float : right;
-margin-right : 25px;
-margin-top : 25px;
-border-radius : 5px;
-}
+
 body {
 margin : 0;
 padding : 0;

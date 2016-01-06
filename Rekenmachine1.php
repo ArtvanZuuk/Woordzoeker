@@ -19,9 +19,6 @@ $telefoonmerken = array(
 				"Kaas"
 );
 ?>
-
-
-
 <div id=container>
 <div id=titel>Arrays</div>
 <div id=intro>
@@ -38,13 +35,13 @@ echo "$telefoonmerken[0] </br>
 
 </div>
 
-<div id=afbeelding>
+<div id=intro>
 <?PHP
 echo '<pre>', print_r($telefoonmerken, true), '</pre>';
 ?>
 </div>
 
-<div id=array>
+<div id=intro>
 <?php
 foreach ($telefoonmerken as $telefoonmerk) {
               echo "<li>$telefoonmerk</li>";
@@ -54,7 +51,7 @@ foreach ($telefoonmerken as $telefoonmerk) {
 ?>
 </div>
 
-<div id=array_rechts>
+<div id=intro>
 <?PHP
 sort($telefoonmerken);
 print join(", ", $telefoonmerken);
