@@ -11,6 +11,11 @@
 $fietsen = array( 
    "Capino", "Wilier", "Giant", "Gazelle", "Ghost", "Scott", "Specialized", "Puch"
 ); 
+$regel1 = array (
+                    "Chinese telefoon", 
+                    "Nokia", $fietsen
+);
+
 $telefoonmerken = array(
 				"HTC",
 				"OnePlus",
@@ -22,7 +27,8 @@ $telefoonmerken = array(
 				"Oppo",
                                 "Motorola",
                                 "Samsung",
-                                "Kaas"
+                                "Kaas",
+                                $regel1
                                 
 );
 ?>
