@@ -1,21 +1,16 @@
 <?php
-$bestand = fopen("woordzoeker.txt", "r") or die("Unable to open file!");
-echo fread($bestand,filesize("woordzoeker.txt"));
+//$bestand = fopen("woordzoeker.txt", "r") or die("Unable to open file!");
+//echo fread($bestand,filesize("woordzoeker.txt"));
 
-$regels=file('woordzoeker.txt');
+$file_handle = fopen("woordzoeker.txt", "rb");
 
-$regels= array[0];
-$fp=fopen('woordzoeker.txt', 'r');
-while (!feof($fp))
-{
-    $line=fgets($fp);
+while (!feof($file_handle) ) {
 
-    //process line however you like
-    $line=trim($line);
+$line_of_text = fgets($file_handle);
+$parts = explode('=', $line_of_text);
 
-    //add to array
-    $lines[]=$line;
+print $parts[0] . $parts[1]. "</br>";
 
 }
-fclose($fp);
-?> 
+
+fclose($file_handle);
