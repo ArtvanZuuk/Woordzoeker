@@ -34,9 +34,34 @@ margin-left : 25px;
 margin-top : 25px;
 border-radius : 5px;
 }
-
 body {
 margin : 0;
 padding : 0;
 background-image : url("wallpaper.jpg");
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color:#FFFFFF ;
+    margin : auto;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
+    margin : auto;
+    font-size : 4em;
+}
+table{
+height: 150px;
+margin : auto;
+}
+#tabel {
+border : solid 3px;
+padding : 20px;
+width : 90%;
+height: 800px;
+background-color : #65c3ba;
+margin : auto;
+margin-top: 25px;
+border-radius : 5px;
 }
