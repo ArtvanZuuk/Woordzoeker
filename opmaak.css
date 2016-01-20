@@ -39,20 +39,20 @@ margin : 0;
 padding : 0;
 background-image : url("wallpaper.jpg");
 }
-table, th, td {
+table, td {
     border: 1px solid black;
     border-collapse: collapse;
     background-color:#FFFFFF ;
     margin : auto;
 }
-th, td {
-    padding: 5px;
+td {
+    padding: 1px;
     text-align: center;
-    margin : auto;
-    font-size : 4em;
+    font-size : 2em;
+    width: 38px;
 }
 table{
-height: 150px;
+height: auto;
 margin : auto;
 }
 #tabel {
