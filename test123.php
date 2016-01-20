@@ -1,16 +1,23 @@
 <?php
-//$bestand = fopen("woordzoeker.txt", "r") or die("Unable to open file!");
-//echo fread($bestand,filesize("woordzoeker.txt"));
+$regels = file('woordzoeker.txt');
 
-$file_handle = fopen("woordzoeker.txt", "rb");
-
-while (!feof($file_handle) ) {
-
-$line_of_text = fgets($file_handle);
-$parts = explode('=', $line_of_text);
-
-print $parts[0] . $parts[1]. "</br>";
-
+//for($i = 0 : $i < \strlen(regel); $i++);
+//$matrix[$j][$i] = $regel [$i]; 
+ //Loop through our array, show HTML source as HTML source; and line numbers too.
+foreach ($regels as $regel_nummer => $regel) {
+    echo "Regel #<b>{$regel_nummer}</b> : ". htmlspecialchars ($regel) . "<br />\n";
 }
 
-fclose($file_handle);
+foreach ($regels as $letters => $regel){
+$str = $regel;
+
+$arr1 = str_split($str);
+}
+
+ //Another example, let's get a web page into a string.  See also file_get_contents().
+//$html = implode('', file('woordzoeker.txt'));
+
+// Using the optional flags parameter since PHP 5
+
+
+?>
