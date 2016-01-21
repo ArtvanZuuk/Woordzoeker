@@ -34,6 +34,11 @@ margin-left : 25px;
 margin-top : 25px;
 border-radius : 5px;
 }
+#zoekwoorden {
+margin-left : auto;
+margin-right : auto;
+width : 100px;
+}
 body {
 margin : 0;
 padding : 0;
