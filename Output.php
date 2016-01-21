@@ -2,12 +2,10 @@
     function build_table($array){
     // start table
     $html = '<table>';
-    // header row
-    $html .= '<tr>';
-    $html .= '</tr>';
 
     // data rows
     foreach( $array as $key=>$value){
+        //var_dump($value);
         $html .= '<tr>';
         foreach($value as $key2=>$value2){
             $html .= '<td>' . $value2 . '</td>';
@@ -32,15 +30,15 @@ foreach ($woordenzoeker as &$regel){
 }
 
 foreach ($woordenzoeker as &$value3) {
-   // $value3 = trim($value3, "\n");
+    $elementToBeDeleted = sizeof($value3) - 1;
+    unset($value3[$elementToBeDeleted]);
     foreach ($value3 as &$value4){
-        if($value4 == "-"){
+        if($value4 == "-" or $value4 == "/n"){
             $value4 = $alfabet[rand(0, 25)];
         }
     }
 }
 
-//$woordenzoekertrimmed = trim($woordenzoeker, "\n");
 ?>
 
 <html>
@@ -54,6 +52,7 @@ foreach ($woordenzoeker as &$value3) {
         <div id="tabel">
             <?php
                 echo build_table($woordenzoeker);
+                echo $woordenzoeker[0][0];
             ?>
         </div>
     </body>
