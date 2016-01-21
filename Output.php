@@ -27,7 +27,11 @@ $witregel = $witregel[0];
 $MagischWitRegelNummer = array_search($witregel, $woordenzoeker);
 unset($woordenzoeker[$MagischWitRegelNummer]);
 $zoekwoorden = array_slice($woordenzoeker, $MagischWitRegelNummer);
+foreach ($zoekwoorden as $zoekwoord){
+    $zoekwoord = trim($zoekwoord);
+}
 $woordenzoeker = array_slice($woordenzoeker,0 ,$MagischWitRegelNummer);
+var_dump($zoekwoorden);
 
 //woordzoeker array met regels verder splitsen in een multidimensionale array met lose letters
 foreach ($woordenzoeker as &$regel){

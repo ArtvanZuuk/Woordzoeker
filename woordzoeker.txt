@@ -18,5 +18,4 @@ Podcast
 Beeld
 Muis
 Toetsen
-Geheugeh
-Muis
+Geheugen
