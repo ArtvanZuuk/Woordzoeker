@@ -1,5 +1,5 @@
 <?php
-//functie om een tabel te kunnen maken
+//functie om een tabel te kunnen maken van een array
 function build_table($array){
     $html = '<table>';
     foreach( $array as $key=>$value){
@@ -27,11 +27,11 @@ $witregel = $witregel[0];
 $MagischWitRegelNummer = array_search($witregel, $woordenzoeker);
 unset($woordenzoeker[$MagischWitRegelNummer]);
 $zoekwoorden = array_slice($woordenzoeker, $MagischWitRegelNummer);
-foreach ($zoekwoorden as $zoekwoord){
-    $zoekwoord = trim($zoekwoord);
+foreach ($zoekwoorden as &$zoekwoord){
+   $zoekwoord = trim($zoekwoord);
 }
 $woordenzoeker = array_slice($woordenzoeker,0 ,$MagischWitRegelNummer);
-var_dump($zoekwoorden);
+
 
 //woordzoeker array met regels verder splitsen in een multidimensionale array met lose letters
 foreach ($woordenzoeker as &$regel){
@@ -46,6 +46,18 @@ foreach ($woordenzoeker as &$value3) {
         }
     }
 }
+
+//zoekwoorden ontdoen van hoofdletters zodat ze gezocht kunnen worden
+//gzw = gesplitst zoekwoord
+//gzwn = gesplitste zoekwoorden
+$zoekwoorden = array_map('strtolower', $zoekwoorden);
+$gzwn = $zoekwoorden;
+foreach ($gzwn as &$gzw){
+    $gzw = str_split($gzw);
+}
+//echo "<pre>", print_r($gzwn, true), "</pre>";
+
+//eerste poging tot woorden zoeken
 ?>
 
 
@@ -54,7 +66,7 @@ foreach ($woordenzoeker as &$value3) {
         <title>Woordenzoeker</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="opmaak.css" rel="stylesheet"/>
+        <link href="opmaak.php" rel="stylesheet"/>
     </head>
     <body>
         <div id="tabel">
@@ -66,10 +78,11 @@ foreach ($woordenzoeker as &$value3) {
                 </br>
                 <?php
                 //het lijstje met zoekwoorden laten zien
-                foreach ($zoekwoorden as $zoekwoord) {
-                    echo "$zoekwoord</br>";
+                sort($zoekwoorden);
+                foreach ($zoekwoorden as &$zoekwoord) {
+                    $ZOEKWOORD = ucfirst($zoekwoord);
+                    echo "<div class=$zoekwoord>$ZOEKWOORD</div>";
                 }
-                unset($zoekwoord);
             ?>
             </div>
         </div>

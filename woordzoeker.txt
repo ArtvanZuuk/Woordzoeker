@@ -1,13 +1,13 @@
 geheugen--
-muis------
-toetsen---
-beeld-----
-browser---
-samen-----
-podcast---
+-muis-----
+--toetsen-
+---beeld--
+----samen-
+---browser
+-podcast--
 edublog---
-spelen----
-leren-----
+----spelen
+-leren----
 
 Leren
 Spelen

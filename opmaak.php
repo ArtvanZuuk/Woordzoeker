@@ -1,4 +1,6 @@
-@charset "UTF-8";
+<?php
+    header("content-type: text/css; charset: UTF-8");
+?>
 #container {
 border : solid 3px;
 margin-left : auto;
@@ -37,7 +39,8 @@ border-radius : 5px;
 #zoekwoorden {
 margin-left : auto;
 margin-right : auto;
-width : 100px;
+width : 150px;
+text-align : center;
 }
 body {
 margin : 0;
@@ -73,3 +76,8 @@ border-radius : 5px;
 td.podcast {
     background-color : red;
 }
+div.podcast:hover {text-decoration: underline;}
+
+<?php
+
+?>
