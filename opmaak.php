@@ -1,41 +1,6 @@
 <?php
     header("content-type: text/css; charset: UTF-8");
 ?>
-#container {
-border : solid 3px;
-margin-left : auto;
-margin-right : auto;
-margin-top : 70px;
-padding : 10px;
-width : 1200px;
-height : 1000px;
-border-radius : 10px;
-background-color : #ffffff;
-}
-#titel {
-border : solid 3px;
-padding : 20px;
-width : 1100px;
-height : 50px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
-margin-bottom: 25px; 
-border-radius : 5px;
-text-align : center;
-font-size : 3em;
-}
-#intro {
-border : solid 3px;
-padding : 20px;
-width : 225px;
-height : 250px;
-background-color : #65c3ba;
-float : left;
-margin-left : 25px;
-margin-top : 25px;
-border-radius : 5px;
-}
 #zoekwoorden {
 margin-left : auto;
 margin-right : auto;
@@ -62,22 +27,26 @@ td {
 table{
 height: auto;
 margin : auto;
+box-shadow: 5px 5px 15px #888888;
 }
 #tabel {
-border : solid 3px;
+box-shadow: 5px 5px 15px #777777;
 padding : 20px;
 width : 90%;
 height: 800px;
 background-color : #65c3ba;
 margin : auto;
 margin-top: 25px;
-border-radius : 5px;
 }
 td.podcast {
     background-color : red;
 }
-div.podcast:hover {text-decoration: underline;}
-
 <?php
-
+$classes = array("beeld", "browser", "edublog", "geheugen");
+foreach ($classes as $class){print join("div.", $class, ":hover,");
+print " {text-decoration: underline;}";
+} 
 ?>
+div.beeld:hover, div.browser:hover, div.edublog:hover, div.geheugen:hover, div.leren:hover, div.muis:hover, div.podcast:hover, div.samen:hover, div.spelen:hover, div.toetsen:hover { 
+    text-decoration: underline;
+}
