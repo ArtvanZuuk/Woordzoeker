@@ -109,11 +109,11 @@ foreach ($gzwn as &$gzw) {
 <script>
 
 $(document).ready(function(){
-    $(".zoekwoorden").mouseover(function(){
+    $("#zoekwoorden").mouseover(function(){
   	$(this).css("color", "blue");
   
   });
-    $(".zoekwoorden").mouseout(function(){
+    $("#zoekwoorden").mouseout(function(){
         $(this).css("color", "black");
     });
 	});
@@ -122,7 +122,7 @@ $(document).ready(function(){
 <script>
 
 $(document).ready(function(){
-  $(".zoekwoorden").click(function(){
+  $("#zoekwoorden").click(function(){
         $(this).css("background-color","red");
    });
         });
