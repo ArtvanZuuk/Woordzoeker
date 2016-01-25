@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 //function pre() {
@@ -100,6 +103,32 @@ foreach ($gzwn as &$gzw) {
 
         //<link href="opmaak.php" rel="stylesheet"/>
         ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+</script>
+
+<script>
+
+$(document).ready(function(){
+    $("p").mouseover(function(){
+  	$(this).css("color", "blue");
+  
+  });
+    $("p").mouseout(function(){
+        $(this).css("color", "black");
+    });
+	});
+</script>
+
+<script>
+
+$(document).ready(function(){
+  $("p").click(function(){
+        $(this).css("background-color","red");
+   });
+        });
+
+</script>
+        
     </head>
     <body>
 
