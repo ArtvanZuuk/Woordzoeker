@@ -68,14 +68,12 @@ foreach ($gzwn as &$gzw) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="opmaak.css">
         <?php
-        $classes = array("beeld", "browser", "edublog", "geheugen");
         $classes = $zoekwoorden;
         print "<style>";
         include_once 'opmaak.php';
         print "</style>";
-        
-        //<link href="opmaak.php" rel="stylesheet"/>
         ?>
+        <script type="text/javascript" src="opmaak.js"></script>
     </head>
     <body>
         <div id="tabel">

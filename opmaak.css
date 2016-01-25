@@ -1,24 +1,13 @@
 @charset "UTF-8";
-#container {
-border : solid 3px;
-margin-left : auto;
-margin-right : auto;
-margin-top : 70px;
-padding : 10px;
-width : 1200px;
-height : 1000px;
-border-radius : 10px;
-background-color : #ffffff;
-}
 #zoekwoorden {
-margin-left : auto;
-margin-right : auto;
-width : 100px;
+    margin-left : auto;
+    margin-right : auto;
+    width : 100px;
 }
 body {
-margin : 0;
-padding : 0;
-background-image : url("wallpaper.jpg");
+    margin : 0;
+    padding : 0;
+    background-image : url("wallpaper.jpg");
 }
 table, td {
     border: 1px solid black;
@@ -33,19 +22,18 @@ td {
     width: 38px;
 }
 table{
-height: auto;
-margin : auto;
+    height: auto;
+    margin : auto;
 }
 #tabel {
-border : solid 3px;
-padding : 20px;
-width : 90%;
-height: 800px;
-background-color : #65c3ba;
-margin : auto;
-margin-top: 25px;
-border-radius : 5px;
+    box-shadow: 5px 5px 10px #888888;
+    padding : 20px;
+    width : 90%;
+    height: 800px;
+    background-color : #65c3ba;
+    margin : auto;
+    margin-top: 25px;
 }
-td.podcast {
+/*td.podcast {
     background-color : red;
-}
+}*/
