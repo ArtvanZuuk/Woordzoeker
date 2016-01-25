@@ -1,10 +1,11 @@
 <?php
+
 //functie om een tabel te kunnen maken van een array
-function build_table($array){
+function build_table($array) {
     $html = '<table>';
-    foreach( $array as $key=>$value){
+    foreach ($array as $key => $value) {
         $html .= '<tr>';
-        foreach($value as $key2=>$value2){
+        foreach ($value as $key2 => $value2) {
             $html .= '<td>' . $value2 . '</td>';
         }
         $html .= '</tr>';
@@ -14,7 +15,7 @@ function build_table($array){
 }
 
 //array met letters om minnetjes te veranderen
-$alfabet = array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", 
+$alfabet = array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
     "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
 );
 
@@ -27,21 +28,21 @@ $witregel = $witregel[0];
 $MagischWitRegelNummer = array_search($witregel, $woordenzoeker);
 unset($woordenzoeker[$MagischWitRegelNummer]);
 $zoekwoorden = array_slice($woordenzoeker, $MagischWitRegelNummer);
-foreach ($zoekwoorden as &$zoekwoord){
-   $zoekwoord = trim($zoekwoord);
+foreach ($zoekwoorden as &$zoekwoord) {
+    $zoekwoord = trim($zoekwoord);
 }
-$woordenzoeker = array_slice($woordenzoeker,0 ,$MagischWitRegelNummer);
+$woordenzoeker = array_slice($woordenzoeker, 0, $MagischWitRegelNummer);
 
 
 //woordzoeker array met regels verder splitsen in een multidimensionale array met lose letters
-foreach ($woordenzoeker as &$regel){
+foreach ($woordenzoeker as &$regel) {
     $regel = str_split(trim($regel));
 }
 
 //minnetjes veranderen in plusjes
 foreach ($woordenzoeker as &$value3) {
-    foreach ($value3 as &$value4){
-        if($value4 == "-"){
+    foreach ($value3 as &$value4) {
+        if ($value4 == "-") {
             $value4 = $alfabet[rand(0, 25)];
         }
     }
@@ -52,11 +53,10 @@ foreach ($woordenzoeker as &$value3) {
 //gzwn = gesplitste zoekwoorden
 $zoekwoorden = array_map('strtolower', $zoekwoorden);
 $gzwn = $zoekwoorden;
-foreach ($gzwn as &$gzw){
+foreach ($gzwn as &$gzw) {
     $gzw = str_split($gzw);
 }
 //echo "<pre>", print_r($gzwn, true), "</pre>";
-
 //eerste poging tot woorden zoeken
 ?>
 
@@ -66,13 +66,22 @@ foreach ($gzwn as &$gzw){
         <title>Woordenzoeker</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="opmaak.php" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="opmaak.css">
+        <?php
+        $classes = array("beeld", "browser", "edublog", "geheugen");
+        $classes = $zoekwoorden;
+        print "<style>";
+        include_once 'opmaak.php';
+        print "</style>";
+        
+        //<link href="opmaak.php" rel="stylesheet"/>
+        ?>
     </head>
     <body>
         <div id="tabel">
             <?php
-                //de tabel laten zien
-                echo build_table($woordenzoeker);
+            //de tabel laten zien
+            echo build_table($woordenzoeker);
             ?>   
             <div id="zoekwoorden">
                 </br>
@@ -83,7 +92,7 @@ foreach ($gzwn as &$gzw){
                     $ZOEKWOORD = ucfirst($zoekwoord);
                     echo "<div class=$zoekwoord>$ZOEKWOORD</div>";
                 }
-            ?>
+                ?>
             </div>
         </div>
     </body>

@@ -1,6 +1,9 @@
 <?php
-    header("content-type: text/css; charset: UTF-8");
+//header("content-type: text/css; charset: UTF-8");
 ?>
+
+
+<!--
 #zoekwoorden {
 margin-left : auto;
 margin-right : auto;
@@ -41,12 +44,15 @@ margin-top: 25px;
 td.podcast {
     background-color : red;
 }
+-->
 <?php
-$classes = array("beeld", "browser", "edublog", "geheugen");
-foreach ($classes as $class){print join("div.", $class, ":hover,");
-print " {text-decoration: underline;}";
-} 
-?>
-div.beeld:hover, div.browser:hover, div.edublog:hover, div.geheugen:hover, div.leren:hover, div.muis:hover, div.podcast:hover, div.samen:hover, div.spelen:hover, div.toetsen:hover { 
-    text-decoration: underline;
+
+foreach ($classes as $class) {
+    print "div." . $class . ":hover,";
+    
 }
+print "blabla ";
+print " {text-decoration: underline;}";
+
+//div.beeld:hover, div.browser:hover, div.edublog:hover, div.geheugen:hover, div.leren:hover, div.muis:hover, div.podcast:hover, div.samen:hover, div.spelen:hover, div.toetsen:hover { 
+//text-decoration: underline;
