@@ -53,11 +53,23 @@ foreach ($woordenzoeker as &$value3) {
 //gzwn = gesplitste zoekwoorden
 $zoekwoorden = array_map('strtolower', $zoekwoorden);
 $gzwn = $zoekwoorden;
-foreach ($gzwn as &$gzw) {
-    $gzw = str_split($gzw);
-}
+//foreach ($gzwn as &$gzw) {
+//}
 //echo "<pre>", print_r($gzwn, true), "</pre>";
 //eerste poging tot woorden zoeken
+//echo "<pre>", print_r($woordenzoeker, true), "</pre>";
+//echo "<pre>", print_r($gzwn, true), "</pre>";
+//$overeenkomst = array();
+foreach ($gzwn as &$zoekendwoord) {
+    $zoekendwoord = str_split($zoekendwoord);
+    foreach ($woordenzoeker as &$woordenzoekerregel) {
+        $overeenkomst = array_intersect_assoc($zoekendwoord, $woordenzoekerregel);
+        if ($overeenkomst == $zoekendwoord){
+            echo "ja dit woord, zit er in";
+            echo "<pre>", print_r($zoekendwoord, true), "</pre>";
+        }
+    }
+}
 ?>
 
 
