@@ -1,14 +1,21 @@
 <?php
 
 //functie om een tabel te kunnen maken van een array
+
 function build_table($array) {
     $html = '<table>';
+    $xcordinaat = "0";
+    $ycordinaat = "0";
     foreach ($array as $key => $value) {
         $html .= '<tr>';
         foreach ($value as $key2 => $value2) {
-            $html .= '<td>' . $value2 . '</td>';
+            $cordinaat = $xcordinaat . "," . $ycordinaat;
+            $html .= "<td class='$cordinaat'>" . $value2 . '</td>';
+            $xcordinaat = $xcordinaat + 1;
         }
         $html .= '</tr>';
+        $ycordinaat = $ycordinaat + 1;
+        $xcordinaat = "0";
     }
     $html .= '</table>';
     return $html;
@@ -34,6 +41,7 @@ foreach ($zoekwoorden as &$zoekwoord) {
 $woordenzoeker = array_slice($woordenzoeker, 0, $MagischWitRegelNummer);
 
 
+
 //woordzoeker array met regels verder splitsen in een multidimensionale array met lose letters
 foreach ($woordenzoeker as &$regel) {
     $regel = str_split(trim($regel));
@@ -48,25 +56,25 @@ foreach ($woordenzoeker as &$value3) {
     }
 }
 
+//letters in een regel tellen
+$regelletters  = count($woordenzoeker[0]);
+echo $regelletters;
+
 //zoekwoorden ontdoen van hoofdletters zodat ze gezocht kunnen worden
 //gzw = gesplitst zoekwoord
-//gzwn = gesplitste zoekwoorden
+//gesplitst = gesplitste zoekwoorden
 $zoekwoorden = array_map('strtolower', $zoekwoorden);
-$gzwn = $zoekwoorden;
-//foreach ($gzwn as &$gzw) {
-//}
-//echo "<pre>", print_r($gzwn, true), "</pre>";
-//eerste poging tot woorden zoeken
-//echo "<pre>", print_r($woordenzoeker, true), "</pre>";
-//echo "<pre>", print_r($gzwn, true), "</pre>";
-//$overeenkomst = array();
-foreach ($gzwn as &$zoekendwoord) {
-    $zoekendwoord = str_split($zoekendwoord);
-    foreach ($woordenzoeker as &$woordenzoekerregel) {
-        $overeenkomst = array_intersect_assoc($zoekendwoord, $woordenzoekerregel);
-        if ($overeenkomst == $zoekendwoord){
-            echo "ja dit woord, zit er in";
-            echo "<pre>", print_r($zoekendwoord, true), "</pre>";
+$gesplitst = $zoekwoorden;
+foreach ($gesplitst as &$gzw) {
+    $gzw = str_split($gzw);
+}
+echo "<pre>", print_r($gesplitst, true), "</pre>";
+
+foreach ($gesplitst as $zoekendwoord) {
+    $aantalletters = count($zoekendwoord);
+    for ($i = 1; $i <= $aantalletters; $i++) {
+        if ($zoekendwoord) {
+            
         }
     }
 }
