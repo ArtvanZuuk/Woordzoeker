@@ -85,6 +85,32 @@ foreach ($gzwn as &$gzw) {
 }
 //echo "<pre>", print_r($gzwn, true), "</pre>";
 //eerste poging tot woorden zoeken
+echo $gzw[1]. $regel[0];
+$i = 0
+while($gzw[1] != $regel[$i]){
+   if ($gzw[1] != $regel[$i]){
+    $bekijkwaarde = next($regel);
+   $i++
+   
+}
+$i = 0;
+// Don't allow more than 5 if the array is bigger than 5
+$maximaleaantal = 5;
+foreach ($regel as $data) {
+  if ($i < $maximaleaantal) {
+    if ($regel[$i] != $gzw[1]) {
+        $formatted_array[$i] = $data;
+        $i++;
+    }
+  }
+  else  {  // Jump out of the loop if we hit the maximum
+     break;
+  }
+}
+return $formatted_array; 
+//ifelse{
+    
+//}
 ?>
 
 
