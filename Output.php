@@ -79,18 +79,16 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
     $aantalkeer = $regelletters - count($zoekendwoord);
     //echo count($zoekendwoord);
     $check = 0;
-    for ($i = 0; $i <= count($zoekendwoord) - 1; $i++) {
+    for ($j = 0; $j <= $aantalkeer - 1; $j++) {
         $lettersoverslaan = 0;
-        for ($j = 0; $j <= $aantalkeer - 1; $j++) {
+        for ($i = 0; $i <= count($zoekendwoord) - 1; $i++) {
             $cordinaat = array();
             if ($zoekendwoord[$i] == $woordenzoekerregel[$i + $lettersoverslaan]) {
                 $check = $check + 1;
-                $k = $i + $j;
-                $l = $regelnummer - 1;
-                $c = $k . "," . $l;
+                $x = $i + $j;
+                $y = $regelnummer - 1;
+                $c = $x . "," . $y;
                 array_push($cordinaat, $c);
-            } else {
-                unset($cordinaat);
             }
             if ($check == count($zoekendwoord)) {
                 echo "dollar zoekendwoord zit in regel " . $regelnummer;
@@ -100,6 +98,7 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
             }
             $lettersoverslaan = $lettersoverslaan + 1;
         }
+        unset($cordinaat);
     }
     //}
 }
