@@ -19,3 +19,4 @@ Beeld
 Muis
 Toetsen
 Geheugen
+Afwezig
