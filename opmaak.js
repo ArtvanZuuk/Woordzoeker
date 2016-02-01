@@ -15,8 +15,13 @@ foreach ($gevondenWoordenCoordinaten as $gevondenwoord){
 src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $("#bal").hover(function(){
+    $("#bal").mouseenter(function(){
         $("#y1x1").css("color", "red");
+    });
+});
+$(document).ready(function(){
+    $("#bal").mouseleave(function(){
+        $("#y1x1").css("color", "black");
     });
 });
 </script>
