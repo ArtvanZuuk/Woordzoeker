@@ -68,28 +68,28 @@ foreach ($gesplitst as &$gzw) {
     $gzw = str_split($gzw);
 }
 //echo "<pre>", print_r($gesplitst, true), "</pre>";
-$regelnummer = 0;
 //$cordinaat = array();
 //$zoekendwoord = $gesplitst[0];
 //print_r($zoekendwoord);
+$regelnummer = 0;
 foreach ($woordenzoeker as $woordenzoekerregel) {
-    $regelnummer = 0;
-    foreach ($gesplitst as $zoekendwoord) {
+    $regelnummer++;
+    foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+        $hetWoord = implode('', $zoekendwoord);
         //print_r($zoekendwoord);
-        $regelnummer = $regelnummer + 1;
         $aantalkeer = $regelletters - count($zoekendwoord) + 1;
         //echo count($zoekendwoord);
-        $check = 0;
+        $cordinaat[$hetWoord] = array();
         for ($j = 0; $j < $aantalkeer; $j++) {
             //$lettersoverslaan = 0;
+            $check = 0;
             for ($i = 0; $i < count($zoekendwoord); $i++) {
-                $cordinaat = array();
                 if ($zoekendwoord[$i] == $woordenzoekerregel[$i + $j]) {
                     $check = $check + 1;
                     $x = $i + $j;
                     $y = $regelnummer - 1;
                     $c = $x . "," . $y;
-                    array_push($cordinaat, $c);
+                    array_push($cordinaat[$hetWoord], $c);
                 }
                 //$lettersoverslaan = $lettersoverslaan + 1;
             }
@@ -98,16 +98,63 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
                 echo $z . " zit in regel " . $regelnummer;
                 echo "</br>";
                 echo "namelijk op de volgende cordinaten:";
-                echo "<pre>", print_r($cordinaat, true), "</pre>";
+                echo "<pre>", print_r($cordinaat[$hetWoord], true), "</pre>";
+                $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
             }
-            if ($check /= count($zoekendwoord)) {
+            if ($check <> count($zoekendwoord)) {
                 for ($a = 0; $a <= count($zoekendwoord); $a++) {
-                    unset($cordinaat[$a]);
+                    unset($cordinaat[$hetWoord][$a]);
                 }
             }
         }
     }
 }
+
+
+
+//van rechts naar links
+$regelnummer = 0;
+foreach ($woordenzoeker as $woordenzoekerregel) {
+    $regelnummer++;
+    foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+        $hetWoord = implode('', $zoekendwoord);
+        //print_r($zoekendwoord);
+        $aantalkeer = $regelletters - count($zoekendwoord) + 1;
+        //echo count($zoekendwoord);
+        $cordinaat[$hetWoord] = array();
+        for ($j = 0; $j < $aantalkeer; $j++) {
+            //$lettersoverslaan = 0;
+            $check = 0;
+            for ($i = 0; $i < count($zoekendwoord); $i++) {
+                if ($zoekendwoord[$i] == $woordenzoekerregel[$regelletters - $i - $j -1]) {
+                    $check = $check + 1;
+                    $x = $regelletters - $i - $j -1;
+                    $y = $regelnummer - 1;
+                    $c = $x . "," . $y;
+                    array_push($cordinaat[$hetWoord], $c);
+                }
+                //$lettersoverslaan = $lettersoverslaan + 1;
+            }
+            if ($check == count($zoekendwoord)) {
+                $z = implode($zoekendwoord);
+                echo $z . " zit in regel " . $regelnummer;
+                echo "</br>";
+                echo "namelijk op de volgende cordinaten:";
+                echo "<pre>", print_r($cordinaat[$hetWoord], true), "</pre>";
+                $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
+            }
+            if ($check <> count($zoekendwoord)) {
+                for ($a = 0; $a <= count($zoekendwoord); $a++) {
+                    unset($cordinaat[$hetWoord][$a]);
+                }
+            }
+        }
+    }
+}
+
+
+
+//echo "<pre>", print_r($gevondenWoordenCoordinaten), "</pre>";
 ?>
 
 
