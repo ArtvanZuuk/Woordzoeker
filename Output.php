@@ -47,7 +47,7 @@ foreach ($woordenzoeker as &$regel) {
     $regel = str_split(trim($regel));
 }
 
-//minnetjes veranderen in plusjes
+//minnetjes veranderen in letters
 foreach ($woordenzoeker as &$value3) {
     foreach ($value3 as &$value4) {
         if ($value4 == "-") {
@@ -58,7 +58,7 @@ foreach ($woordenzoeker as &$value3) {
 
 //letters in een regel tellen
 $regelletters = count($woordenzoeker[0]);
-//echo $regelletters;
+
 //zoekwoorden ontdoen van hoofdletters zodat ze gezocht kunnen worden
 //gzw = gesplitst zoekwoord
 //gesplitst = gesplitste zoekwoorden
@@ -67,21 +67,16 @@ $gesplitst = $zoekwoorden;
 foreach ($gesplitst as &$gzw) {
     $gzw = str_split($gzw);
 }
-//echo "<pre>", print_r($gesplitst, true), "</pre>";
-//$cordinaat = array();
+
 //$zoekendwoord = $gesplitst[0];
-//print_r($zoekendwoord);
 $regelnummer = 0;
 foreach ($woordenzoeker as $woordenzoekerregel) {
     $regelnummer++;
     foreach ($gesplitst as $woordIndex => $zoekendwoord) {
         $hetWoord = implode('', $zoekendwoord);
-        //print_r($zoekendwoord);
         $aantalkeer = $regelletters - count($zoekendwoord) + 1;
-        //echo count($zoekendwoord);
         $cordinaat[$hetWoord] = array();
         for ($j = 0; $j < $aantalkeer; $j++) {
-            //$lettersoverslaan = 0;
             $check = 0;
             for ($i = 0; $i < count($zoekendwoord); $i++) {
                 if ($zoekendwoord[$i] == $woordenzoekerregel[$i + $j]) {
@@ -91,7 +86,6 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
                     $c = "x" . $x . "y" . $y;
                     array_push($cordinaat[$hetWoord], $c);
                 }
-                //$lettersoverslaan = $lettersoverslaan + 1;
             }
             if ($check == count($zoekendwoord)) {
                 $z = implode($zoekendwoord);
@@ -110,30 +104,24 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
     }
 }
 
-
-
 //van rechts naar links
 $regelnummer = 0;
 foreach ($woordenzoeker as $woordenzoekerregel) {
     $regelnummer++;
     foreach ($gesplitst as $woordIndex => $zoekendwoord) {
         $hetWoord = implode('', $zoekendwoord);
-        //print_r($zoekendwoord);
         $aantalkeer = $regelletters - count($zoekendwoord) + 1;
-        //echo count($zoekendwoord);
         $cordinaat[$hetWoord] = array();
         for ($j = 0; $j < $aantalkeer; $j++) {
-            //$lettersoverslaan = 0;
             $check = 0;
             for ($i = 0; $i < count($zoekendwoord); $i++) {
-                if ($zoekendwoord[$i] == $woordenzoekerregel[$regelletters - $i - $j -1]) {
+                if ($zoekendwoord[$i] == $woordenzoekerregel[$regelletters - $i - $j - 1]) {
                     $check = $check + 1;
-                    $x = $regelletters - $i - $j -1;
+                    $x = $regelletters - $i - $j - 1;
                     $y = $regelnummer - 1;
                     $c = "x" . $x . "y" . $y;
                     array_push($cordinaat[$hetWoord], $c);
                 }
-                //$lettersoverslaan = $lettersoverslaan + 1;
             }
             if ($check == count($zoekendwoord)) {
                 $z = implode($zoekendwoord);
