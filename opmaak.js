@@ -12,13 +12,16 @@ foreach ($gevondenWoordenCoordinaten as $gevondenwoord){
     }
 }
 */
+
 src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script>
+//maakt id "y1x1" rood wanneer muis erop is
 $(document).ready(function(){
     $("#bal").mouseenter(function(){
         $("#y1x1").css("color", "red");
     });
 });
+//maakt id "y1x1" zwart als muis eraf is
 $(document).ready(function(){
     $("#bal").mouseleave(function(){
         $("#y1x1").css("color", "black");
