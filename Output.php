@@ -25,7 +25,6 @@ function build_table($array) {
 $alfabet = array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
     "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
 );
-
 //woordzoeker.txt in een array zetten per regel
 //$woordenzoeker = file("woordzoeker_1.txt");
 $woordenzoeker = file("woordzoeker.txt");
@@ -70,37 +69,44 @@ foreach ($gesplitst as &$gzw) {
 }
 //echo "<pre>", print_r($gesplitst, true), "</pre>";
 $regelnummer = 0;
-$zoekendwoord = $gesplitst[7];
+//$cordinaat = array();
+//$zoekendwoord = $gesplitst[0];
 //print_r($zoekendwoord);
 foreach ($woordenzoeker as $woordenzoekerregel) {
-    //foreach ($gesplitst as $zoekendwoord) {
-    //print_r($zoekendwoord);
-    $regelnummer = $regelnummer + 1;
-    $aantalkeer = $regelletters - count($zoekendwoord);
-    //echo count($zoekendwoord);
-    $check = 0;
-    for ($j = 0; $j <= $aantalkeer - 1; $j++) {
-        $lettersoverslaan = 0;
-        for ($i = 0; $i <= count($zoekendwoord) - 1; $i++) {
-            $cordinaat = array();
-            if ($zoekendwoord[$i] == $woordenzoekerregel[$i + $lettersoverslaan]) {
-                $check = $check + 1;
-                $x = $i + $j;
-                $y = $regelnummer - 1;
-                $c = $x . "," . $y;
-                array_push($cordinaat, $c);
+    $regelnummer = 0;
+    foreach ($gesplitst as $zoekendwoord) {
+        //print_r($zoekendwoord);
+        $regelnummer = $regelnummer + 1;
+        $aantalkeer = $regelletters - count($zoekendwoord) + 1;
+        //echo count($zoekendwoord);
+        $check = 0;
+        for ($j = 0; $j < $aantalkeer; $j++) {
+            //$lettersoverslaan = 0;
+            for ($i = 0; $i < count($zoekendwoord); $i++) {
+                $cordinaat = array();
+                if ($zoekendwoord[$i] == $woordenzoekerregel[$i + $j]) {
+                    $check = $check + 1;
+                    $x = $i + $j;
+                    $y = $regelnummer - 1;
+                    $c = $x . "," . $y;
+                    array_push($cordinaat, $c);
+                }
+                //$lettersoverslaan = $lettersoverslaan + 1;
             }
             if ($check == count($zoekendwoord)) {
-                echo "dollar zoekendwoord zit in regel " . $regelnummer;
+                $z = implode($zoekendwoord);
+                echo $z . " zit in regel " . $regelnummer;
                 echo "</br>";
                 echo "namelijk op de volgende cordinaten:";
                 echo "<pre>", print_r($cordinaat, true), "</pre>";
             }
-            $lettersoverslaan = $lettersoverslaan + 1;
+            if ($check /= count($zoekendwoord)) {
+                for ($a = 0; $a <= count($zoekendwoord); $a++) {
+                    unset($cordinaat[$a]);
+                }
+            }
         }
-        unset($cordinaat);
     }
-    //}
 }
 ?>
 
