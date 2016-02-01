@@ -9,7 +9,7 @@ function build_table($array) {
     foreach ($array as $key => $value) {
         $html .= '<tr>';
         foreach ($value as $key2 => $value2) {
-            $cordinaat = $xcordinaat . "," . $ycordinaat;
+            $cordinaat = "x" . $xcordinaat . "y" . $ycordinaat;
             $html .= "<td class='$cordinaat'>" . $value2 . '</td>';
             $xcordinaat = $xcordinaat + 1;
         }
@@ -88,7 +88,7 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
                     $check = $check + 1;
                     $x = $i + $j;
                     $y = $regelnummer - 1;
-                    $c = $x . "," . $y;
+                    $c = "x" . $x . "y" . $y;
                     array_push($cordinaat[$hetWoord], $c);
                 }
                 //$lettersoverslaan = $lettersoverslaan + 1;
@@ -130,7 +130,7 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
                     $check = $check + 1;
                     $x = $regelletters - $i - $j -1;
                     $y = $regelnummer - 1;
-                    $c = $x . "," . $y;
+                    $c = "x" . $x . "y" . $y;
                     array_push($cordinaat[$hetWoord], $c);
                 }
                 //$lettersoverslaan = $lettersoverslaan + 1;
@@ -155,6 +155,7 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
 
 
 //echo "<pre>", print_r($gevondenWoordenCoordinaten), "</pre>";
+echo "<pre>", var_dump($gevondenWoordenCoordinaten), "</pre>";
 ?>
 
 
