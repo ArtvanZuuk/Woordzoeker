@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
     $(".podcast").click(function(){$(".podcast").hide();});
 });
@@ -10,6 +11,21 @@ foreach ($gevondenWoordenCoordinaten as $gevondenwoord){
         });
     }
 }
-
+*/
+src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#bal").hover(function(){
+        $("#y1x1").css("color", "red");
+    });
+});
+</script>
+//dit is html>
+/*
+<div id="bal" <p>Doe je muis hierop</p></div>
+<div id="y1x1"
+<p>dit wordt rood</p>
+</div>
+*/
 
 
