@@ -12,19 +12,19 @@ foreach ($gevondenWoordenCoordinaten as $gevondenwoord){
     }
 }
 */
-src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script>
+//src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+//<script>
 $(document).ready(function(){
-    $("#bal").mouseenter(function(){
-        $("#y1x1").css("color", "red");
+    $("div.geheugen").mouseenter(function(){
+        $("td.x1y1").css("color", "red");
     });
 });
 $(document).ready(function(){
-    $("#bal").mouseleave(function(){
-        $("#y1x1").css("color", "black");
+    $("div.geheugen").mouseleave(function(){
+        $("td.x1y1").css("color", "black");
     });
 });
-</script>
+//</script>
 //dit is html>
 /*
 <div id="bal" <p>Doe je muis hierop</p></div>
