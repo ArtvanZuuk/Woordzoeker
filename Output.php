@@ -160,6 +160,19 @@ echo "<pre>", var_dump($gevondenWoordenCoordinaten), "</pre>";
         print "</style>";
         ?>
         <script type="text/javascript" src="opmaak.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("div.test").click(function () {
+                    $("div.test2").css("color", "red");
+                });
+            });
+            $(document).ready(function () {
+                $("div.test").mouseleave(function () {
+                    $("div.test2").css("color", "black");
+                });
+            });
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     </head>
     <body>
         <div id="tabel">
@@ -177,6 +190,12 @@ echo "<pre>", var_dump($gevondenWoordenCoordinaten), "</pre>";
                     echo "<div class=$zoekwoord>$ZOEKWOORD</div>";
                 }
                 ?>
+            </div>
+            <div id="test">
+                <p>test</p>
+            </div>
+            <div id="test2">
+                <p>test2</p>
             </div>
         </div>
     </body>

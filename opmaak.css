@@ -39,3 +39,19 @@ div {
 /*td.podcast {
     background-color : red;
 }*/
+#test {
+    background-color: yellowgreen;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+}
+
+#test2 {
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    padding: auto;
+}
