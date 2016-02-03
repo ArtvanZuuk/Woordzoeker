@@ -12,15 +12,12 @@ foreach ($gevondenWoordenCoordinaten as $gevondenwoord){
     }
 }
 */
-<<<<<<< HEAD
-//src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-//<script>
-=======
 
-src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
 <script>
 //maakt id "y1x1" rood wanneer muis erop is
->>>>>>> fffa926bc6940762f646a4eeced6eed676249e77
 $(document).ready(function(){
     $("div.geheugen").mouseenter(function(){
         $("td.x1y1").css("color", "red");
@@ -32,13 +29,7 @@ $(document).ready(function(){
         $("td.x1y1").css("color", "black");
     });
 });
-//</script>
-//dit is html>
-/*
-<div id="bal" <p>Doe je muis hierop</p></div>
-<div id="y1x1"
-<p>dit wordt rood</p>
-</div>
-*/
+</script>
+
 
 
