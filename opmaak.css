@@ -52,6 +52,6 @@ div {
     text-align: center;
     padding: auto;
 }
-td.rood{
-    background-color: red;
+td.blauw{
+    color: blue;
 }
