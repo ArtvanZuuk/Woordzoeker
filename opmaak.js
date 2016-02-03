@@ -12,12 +12,14 @@ foreach ($gevondenWoordenCoordinaten as $gevondenwoord){
     }
 }
 */
-<<<<<<< HEAD
-//src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-//<script>
-=======
 
+<<<<<<< HEAD
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+=======
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+>>>>>>> 944ad7c25bd797eea809154a3ac604b61092f3e4
 <script>
 //maakt id "y1x1" rood wanneer muis erop is
 $(document).ready(function(){
@@ -32,6 +34,7 @@ $(document).ready(function(){
     });
 });
 </script>
+<<<<<<< HEAD
 //</script>
 //dit is html>
 /*
@@ -40,5 +43,8 @@ $(document).ready(function(){
 <p>dit wordt rood</p>
 </div>
 */
+=======
+
+>>>>>>> 944ad7c25bd797eea809154a3ac604b61092f3e4
 
 
