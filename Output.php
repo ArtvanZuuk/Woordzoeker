@@ -180,7 +180,7 @@ foreach ($gevondenWoordenCoordinaten as $GEVONDENWOORDJE => $gevondenwoord) {
                 foreach ($zoekwoorden as &$zoekwoord) {
                     $ZOEKWOORD = ucfirst($zoekwoord);
                     echo "<div class=$zoekwoord>$ZOEKWOORD</div>";
-                    echo "</br>";
+                    //echo "</br>";
                 }
                 ?>
             </div>
