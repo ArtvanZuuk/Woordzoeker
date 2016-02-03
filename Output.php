@@ -125,46 +125,46 @@ echo "<pre>", PRINT_R($gevondenWoordenCoordinaten), "</pre>";
         include_once 'opmaak.php';
         print "</style>";
         ?>
-<<<<<<< HEAD
-        <script type="text/javascript" src="opmaak.js"></script>
-        <script>
-            $(document).ready(function () {
-                $("div.test").click(function () {
-                    $("div.test2").css("color", "red");
-                });
-            });
-            $(document).ready(function () {
-                $("div.test").mouseleave(function () {
-                    $("div.test2").css("color", "black");
-                });
-            });
-        </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-=======
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script>
+        <?php
+        foreach ($gevondenWoordenCoordinaten as $GEVONDENWOORDJE => $gevondenwoord) {
+            echo '<script type=text/javascript>';
+            echo '$(document).ready(function () {';
+            echo '$("div.' . $GEVONDENWOORDJE . '").mouseenter(function () {';
+            echo '$("td.' . $GEVONDENWOORDJE . '").css("background-color", "red");';
+            echo "});";
+            echo '});';
+            echo '</script>';
+            echo '<script type=text/javascript>';
+            echo '$(document).ready(function () {';
+            echo '$("div.' . $GEVONDENWOORDJE . '").mouseleave(function () {';
+            echo '$("td.' . $GEVONDENWOORDJE . '").css("background-color", "white");';
+            echo "});";
+            echo "});";
+            echo '</script>';
+            echo '<script type=text/javascript>';
+            echo '$(document).ready(function () {';
+            echo '$("div.' . $GEVONDENWOORDJE . '").click(function () {';
+            echo '$("td.' . $cordinaat . '").toggleClass("rood");';
+            echo "});";
+            echo "});";
+            echo '</script>';
+        }
+        ?>
 <?php
 //sort ($gevondenWoordenCoordinaten);
 foreach ($gevondenWoordenCoordinaten as $GEVONDENWOORDJE => $gevondenwoord) {
     //$GEVONDENWOORDJE = key($gevondenWoordenCoordinaten);
-    echo $GEVONDENWOORDJE . " ";
+    //echo $GEVONDENWOORDJE . " ";
     foreach ($gevondenwoord as $cordinaat) {
-
-echo '<script type=text/javascript>';
-echo '$(document).ready(function () {';
-echo '$("td.' . $cordinaat . '").addClass("' . $GEVONDENWOORDJE .'");';
-echo '});';
-echo '</script>';
-
+        echo '<script type=text/javascript>';
+        echo '$(document).ready(function () {';
+        echo '$("td.' . $cordinaat . '").addClass("' . $GEVONDENWOORDJE . '");';
+        echo '});';
+        echo '</script>';
     }
 }
 ?>
-
-
-        </script>
-
-
->>>>>>> 944ad7c25bd797eea809154a3ac604b61092f3e4
     </head>
     <body>
         <div id="tabel">
@@ -180,14 +180,9 @@ echo '</script>';
                 foreach ($zoekwoorden as &$zoekwoord) {
                     $ZOEKWOORD = ucfirst($zoekwoord);
                     echo "<div class=$zoekwoord>$ZOEKWOORD</div>";
+                    echo "</br>";
                 }
                 ?>
-            </div>
-            <div id="test">
-                <p>test</p>
-            </div>
-            <div id="test2">
-                <p>test2</p>
             </div>
         </div>
     </body>

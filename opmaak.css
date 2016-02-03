@@ -36,9 +36,6 @@ table{
 div {
     text-align: center;
 }
-/*td.podcast {
-    background-color : red;
-}*/
 #test {
     background-color: yellowgreen;
     width: 100px;
@@ -54,4 +51,7 @@ div {
     margin: auto;
     text-align: center;
     padding: auto;
+}
+td.rood{
+    background-color: red;
 }
