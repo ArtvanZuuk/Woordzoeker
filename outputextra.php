@@ -89,7 +89,7 @@ foreach ($gzwn as &$gzw) {
 <html>
     <head>
         <title>Woordenzoeker</title>
-   
+        <link rel="shortcut icon" href="fav.ico" type="image/x-icon" />
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="opmaak.css">

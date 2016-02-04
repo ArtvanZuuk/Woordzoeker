@@ -7,9 +7,10 @@
 body {
     margin : 0;
     padding : 0;
+    background-color : #FFFFFF;
+    font-family: Verdana,sans-serif;
 }
 table, td {
-    border: 1px solid black;
     border-collapse: collapse;
     background-color:#FFFFFF ;
     margin : auto;
@@ -17,40 +18,24 @@ table, td {
 td {
     padding: 1px;
     text-align: center;
-    font-size : 2em;
-    width: 38px;
+    font-size : 1.5em;
+    width: 31px;
 }
 table{
+    border: 2px solid black;
     height: auto;
     margin : auto;
 }
-#tabel {
-    box-shadow: 5px 5px 10px #888888;
+#tabel { 
     padding : 20px;
-    width : 90%;
-    height: 800px;
-    background-color : #65c3ba;
+    width : 80%;
+    height : 90%;
+    background-color : #CAE1E8;
     margin : auto;
     margin-top: 25px;
 }
 div {
     text-align: center;
-}
-#test {
-    background-color: yellowgreen;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    text-align: center;
-}
-
-#test2 {
-    background-color: blue;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    text-align: center;
-    padding: auto;
 }
 td.blauw{
     color: blue;
