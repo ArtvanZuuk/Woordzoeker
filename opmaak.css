@@ -29,7 +29,7 @@ table{
 #tabel { 
     padding : 20px;
     width : 80%;
-    height : 90%;
+    height : auto;
     background-color : #CAE1E8;
     margin : auto;
     margin-top: 25px;

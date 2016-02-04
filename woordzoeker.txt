@@ -5,7 +5,7 @@ t--beeld--pe
 a---sameneog
 m-browsercto
 ppodcast-ikv
-edublog---so
+edublog--nso
 n---speleneg
 -lepel----de
 -palindrooml
@@ -25,3 +25,4 @@ Magnesium
 nice
 desktop
 legovogel
+palindroom
