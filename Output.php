@@ -57,7 +57,7 @@ foreach ($woordenzoeker as &$value3) {
 }
 
 //letters in een regel tellen
-$regelletters = count($woordenzoeker[0]);
+$horizontaleletters = count($woordenzoeker[0]);
 
 //zoekwoorden ontdoen van hoofdletters zodat ze gezocht kunnen worden
 //gzw = gesplitst zoekwoord
@@ -68,47 +68,17 @@ foreach ($gesplitst as &$gzw) {
     $gzw = str_split($gzw);
 }
 
-//woorden van beneden naar boven
-$verticaleletters = count($woordenzoeker);
-foreach ($gesplitst as $woordIndex => $zoekendwoord) {
-    $hetWoord = implode('', $zoekendwoord);
-    $aantalkeer = $verticaleletters - count($zoekendwoord) + 1;
-    $cordinaat[$hetWoord] = array();
-    for ($r = 0; $r < $regelletters; $r++) {
-        for ($j = 0; $j < $aantalkeer; $j++) {
-            $check = 0;
-            for ($i = 0; $i < count($zoekendwoord); $i++) {
-                if ($zoekendwoord[$i] == $woordenzoeker[$verticaleletters - $i - $j - 1][$r]) {
-                    $check = $check + 1;
-                    $x = $r;
-                    $y = $verticaleletters - $i - $j - 1;
-                    $c = "x" . $x . "y" . $y;
-                    //$c .= ": $verticaleletters, $i, $j";
-                    array_push($cordinaat[$hetWoord], $c);
-                }
-            }
-            if ($check == count($zoekendwoord)) {
-                $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
-            }
-            if ($check <> count($zoekendwoord)) {
-                for ($a = 0; $a <= count($zoekendwoord); $a++) {
-                    unset($cordinaat[$hetWoord][$a]);
-                }
-            }
-        }
-    }
-}
 
 //woorden zoeken Horizontaal
-$regelnummer = 0;
-foreach ($woordenzoeker as $woordenzoekerregel) {
-    $regelnummer++;
-    foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+    $regelnummer = 0;
+    foreach ($woordenzoeker as $woordenzoekerregel) {
+        $regelnummer++;
         $hetWoord = implode('', $zoekendwoord);
-        $aantalkeer = $regelletters - count($zoekendwoord) + 1;
+        $aantalkeer = $horizontaleletters - count($zoekendwoord) + 1;
         $cordinaat[$hetWoord] = array();
         for ($j = 0; $j < $aantalkeer; $j++) {
-            //Van links naar rechts zoeken
+//Van links naar rechts zoeken
             $check = 0;
             for ($i = 0; $i < count($zoekendwoord); $i++) {
                 if ($zoekendwoord[$i] == $woordenzoekerregel[$i + $j]) {
@@ -121,18 +91,19 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
             }
             if ($check == count($zoekendwoord)) {
                 $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
+                $gevondenWoordenCoordinaten[$hetWoord] = array_slice($gevondenWoordenCoordinaten[$hetWoord], count($gevondenWoordenCoordinaten[$hetWoord]) - count($zoekendwoord));
             }
             if ($check <> count($zoekendwoord)) {
                 for ($a = 0; $a <= count($zoekendwoord); $a++) {
                     unset($cordinaat[$hetWoord][$a]);
                 }
             }
-            //van rechts naar links zoeken
+//van rechts naar links zoeken
             $check = 0;
             for ($i = 0; $i < count($zoekendwoord); $i++) {
-                if ($zoekendwoord[$i] == $woordenzoekerregel[$regelletters - $i - $j - 1]) {
+                if ($zoekendwoord[$i] == $woordenzoekerregel[$horizontaleletters - $i - $j - 1]) {
                     $check = $check + 1;
-                    $x = $regelletters - $i - $j - 1;
+                    $x = $horizontaleletters - $i - $j - 1;
                     $y = $regelnummer - 1;
                     $c = "x" . $x . "y" . $y;
                     array_push($cordinaat[$hetWoord], $c);
@@ -140,9 +111,10 @@ foreach ($woordenzoeker as $woordenzoekerregel) {
             }
             if ($check == count($zoekendwoord)) {
                 $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
+                $gevondenWoordenCoordinaten[$hetWoord] = array_slice($gevondenWoordenCoordinaten[$hetWoord], count($gevondenWoordenCoordinaten[$hetWoord]) - count($zoekendwoord));
             }
             if ($check <> count($zoekendwoord)) {
-                for ($a = 0; $a <= count($zoekendwoord); $a++) {
+                for ($a = 0; $a < count($zoekendwoord); $a++) {
                     unset($cordinaat[$hetWoord][$a]);
                 }
             }
@@ -156,7 +128,7 @@ foreach ($gesplitst as $woordIndex => $zoekendwoord) {
     $hetWoord = implode('', $zoekendwoord);
     $aantalkeer = $verticaleletters - count($zoekendwoord) + 1;
     $cordinaat[$hetWoord] = array();
-    for ($r = 0; $r < $regelletters; $r++) {
+    for ($r = 0; $r < $horizontaleletters; $r++) {
         for ($j = 0; $j < $aantalkeer; $j++) {
             $check = 0;
             for ($i = 0; $i < count($zoekendwoord); $i++) {
@@ -170,9 +142,10 @@ foreach ($gesplitst as $woordIndex => $zoekendwoord) {
             }
             if ($check == count($zoekendwoord)) {
                 $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
+                $gevondenWoordenCoordinaten[$hetWoord] = array_slice($gevondenWoordenCoordinaten[$hetWoord], count($gevondenWoordenCoordinaten[$hetWoord]) - count($zoekendwoord));
             }
             if ($check <> count($zoekendwoord)) {
-                for ($a = 0; $a <= count($zoekendwoord); $a++) {
+                for ($a = 0; $a < count($zoekendwoord); $a++) {
                     unset($cordinaat[$hetWoord][$a]);
                 }
             }
@@ -180,11 +153,83 @@ foreach ($gesplitst as $woordIndex => $zoekendwoord) {
     }
 }
 
+//woorden van beneden naar boven
+//$verticaleletters = count($woordenzoeker);
+foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+    $hetWoord = implode('', $zoekendwoord);
+    $aantalkeer = $verticaleletters - count($zoekendwoord) + 1;
+    $cordinaat[$hetWoord] = array();
+    for ($r = 0; $r < $horizontaleletters; $r++) {
+        for ($j = 0; $j < $aantalkeer; $j++) {
+            $check = 0;
+            for ($i = 0; $i < count($zoekendwoord); $i++) {
+                if ($zoekendwoord[$i] == $woordenzoeker[$verticaleletters - $i - $j - 1][$r]) {
+                    $check = $check + 1;
+                    $x = $r;
+                    $y = $verticaleletters - $i - $j - 1;
+                    $c = "x" . $x . "y" . $y;
+                    array_push($cordinaat[$hetWoord], $c);
+                }
+            }
+            if ($check == count($zoekendwoord)) {
+                $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
+                $gevondenWoordenCoordinaten[$hetWoord] = array_slice($gevondenWoordenCoordinaten[$hetWoord], count($gevondenWoordenCoordinaten[$hetWoord]) - count($zoekendwoord));
+            }
+            if ($check <> count($zoekendwoord)) {
+                for ($a = 0; $a < count($zoekendwoord); $a++) {
+                    unset($cordinaat[$hetWoord][$a]);
+                }
+            }
+        }
+    }
+}
+/**
+//eerste diagonaal, van links boven naar rechts onder
+//i is letter nummer
+//j is aantal letters overslaan in de regel
+//k is aantal vakjes naar rechts
+//r is aantal vakjes naar beneden
+foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+    $hetWoord = implode('', $zoekendwoord);
+    $cordinaat[$hetWoord] = array();
+    //$aantalr = $verticaleletters - count($zoekendwoord) + 1;
+    //for ($r = 0; $r < $aantalr; $r++) {
+        //$aantalk = $horizontaleletters - count($zoekendwoord) + 1;
+        //for ($k = 0; $k < $aantalk; $k++) {
+            //$aantalj = min($aantalk - $k, $aantalr - $r) - count($zoekendwoord);
+            //for ($j = 0; $j < $aantalj; $j++) {
+            for ($j = 0; $j < $horizontaleletters - count($zoekendwoord); $j++) {
+                $cehck = 0;
+                for ($i = 0; $i < count($zoekendwoord); $i++) {
+                    //if ($zoekendwoord[$i] == $woordenzoeker[$r + $i + $j][$k + $i + $j]) {
+                    if ($zoekendwoord[$i] == $woordenzoeker[$i + $j][$i + $j]) {
+                        $check = $check + 1;
+                        //$x = $k + $i + $j;
+                        //$y = $r + $i + $j;
+                        $x = $i + $j;
+                        $y = $i + $j;
+                        $c = "x" . $x . "y" . $y;
+                        array_push($cordinaat[$hetWoord], $c);
+                    }
+                }
+                if ($check == count($zoekendwoord)) {
+                    $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
+                    //$gevondenWoordenCoordinaten[$hetWoord] = array_slice($gevondenWoordenCoordinaten[$hetWoord], count($gevondenWoordenCoordinaten[$hetWoord]) - count($zoekendwoord));
+                }
+                if ($check <> count($zoekendwoord)) {
+                    for ($a = 0; $a < count($zoekendwoord); $a++) {
+                        unset($cordinaat[$hetWoord][$a]);
+                    }
+                }
+            }
+        }
+    //}
+//}
+*/
 
 
 
-
-//echo "<pre>", PRINT_R($gevondenWoordenCoordinaten), "</pre>";
+echo "<pre>", PRINT_R($gevondenWoordenCoordinaten), "</pre>";
 ?>
 
 
@@ -195,60 +240,60 @@ foreach ($gesplitst as $woordIndex => $zoekendwoord) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="opmaak.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <?php
-        $classes = $zoekwoorden;
-        print "<style>";
-        include_once 'opmaak.php';
-        print "</style>";
-        foreach ($gevondenWoordenCoordinaten as $GEVONDENWOORDJE => $gevondenwoord) {
-            echo '<script type=text/javascript>';
-            echo '$(document).ready(function () {';
-            echo '$("div.' . $GEVONDENWOORDJE . '").mouseenter(function () {';
-            echo '$("td.' . $GEVONDENWOORDJE . '").css("background-color", "pink");';
-            echo "});";
-            echo '});';
-            echo '</script>';
-            echo '<script type=text/javascript>';
-            echo '$(document).ready(function () {';
-            echo '$("div.' . $GEVONDENWOORDJE . '").mouseleave(function () {';
-            echo '$("td.' . $GEVONDENWOORDJE . '").css("background-color", "white");';
-            echo "});";
-            echo "});";
-            echo '</script>';
-            echo '<script type=text/javascript>';
-            echo '$(document).ready(function () {';
-            echo '$("div.' . $GEVONDENWOORDJE . '").click(function () {';
-            echo '$("td.' . $GEVONDENWOORDJE . '").addClass("blauw");';
-            echo "});";
-            echo "});";
-            echo '</script>';
-            foreach ($gevondenwoord as $cordinaat) {
-                echo '<script type=text/javascript>';
-                echo '$(document).ready(function () {';
-                echo '$("td.' . $cordinaat . '").addClass("' . $GEVONDENWOORDJE . '");';
-                echo '});';
-                echo '</script>';
-            }
-        }
-        ?>
+<?php
+$classes = $zoekwoorden;
+print "<style>";
+include_once 'opmaak.php';
+print "</style>";
+foreach ($gevondenWoordenCoordinaten as $GEVONDENWOORDJE => $gevondenwoord) {
+    echo '<script type=text/javascript>';
+    echo '$(document).ready(function () {';
+    echo '$("div.' . $GEVONDENWOORDJE . '").mouseenter(function () {';
+    echo '$("td.' . $GEVONDENWOORDJE . '").css("background-color", "pink");';
+    echo "});";
+    echo '});';
+    echo '</script>';
+    echo '<script type=text/javascript>';
+    echo '$(document).ready(function () {';
+    echo '$("div.' . $GEVONDENWOORDJE . '").mouseleave(function () {';
+    echo '$("td.' . $GEVONDENWOORDJE . '").css("background-color", "white");';
+    echo "});";
+    echo "});";
+    echo '</script>';
+    echo '<script type=text/javascript>';
+    echo '$(document).ready(function () {';
+    echo '$("div.' . $GEVONDENWOORDJE . '").click(function () {';
+    echo '$("td.' . $GEVONDENWOORDJE . '").addClass("blauw");';
+    echo "});";
+    echo "});";
+    echo '</script>';
+    foreach ($gevondenwoord as $cordinaat) {
+        echo '<script type=text/javascript>';
+        echo '$(document).ready(function () {';
+        echo '$("td.' . $cordinaat . '").addClass("' . $GEVONDENWOORDJE . '");';
+        echo '});';
+        echo '</script>';
+    }
+}
+?>
     </head>
     <body>
         <div id="tabel">
-            <?php
+        <?php
 //de tabel laten zien
-            echo build_table($woordenzoeker);
-            ?>   
+        echo build_table($woordenzoeker);
+        ?>   
             <div id="zoekwoorden">
                 </br>
-                <?php
+        <?php
 //het lijstje met zoekwoorden laten zien
-                sort($zoekwoorden);
-                foreach ($zoekwoorden as &$zoekwoord) {
-                    $ZOEKWOORD = ucfirst($zoekwoord);
-                    echo "<div class=$zoekwoord>$ZOEKWOORD</div>";
-                    //echo "</br>";
-                }
-                ?>
+        sort($zoekwoorden);
+        foreach ($zoekwoorden as &$zoekwoord) {
+            $ZOEKWOORD = ucfirst($zoekwoord);
+            echo "<div class=$zoekwoord>$ZOEKWOORD</div>";
+            //echo "</br>";
+        }
+        ?>
             </div>
         </div>
     </body>
