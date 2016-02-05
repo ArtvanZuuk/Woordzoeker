@@ -183,38 +183,39 @@ foreach ($gesplitst as $woordIndex => $zoekendwoord) {
         }
     }
 }
-/**
+
 //eerste diagonaal, van links boven naar rechts onder
 //i is letter nummer
 //j is aantal letters overslaan in de regel
 //k is aantal vakjes naar rechts
 //r is aantal vakjes naar beneden
+/**
 foreach ($gesplitst as $woordIndex => $zoekendwoord) {
     $hetWoord = implode('', $zoekendwoord);
     $cordinaat[$hetWoord] = array();
-    //$aantalr = $verticaleletters - count($zoekendwoord) + 1;
+    $aantalr = $verticaleletters - count($zoekendwoord) + 1;
     //for ($r = 0; $r < $aantalr; $r++) {
-        //$aantalk = $horizontaleletters - count($zoekendwoord) + 1;
+    $r=0;
+        $aantalk = $horizontaleletters - count($zoekendwoord) + 1;
         //for ($k = 0; $k < $aantalk; $k++) {
-            //$aantalj = min($aantalk - $k, $aantalr - $r) - count($zoekendwoord);
+        $k=0;
+            $aantalj = min($aantalk - $k, $aantalr - $r) - count($zoekendwoord);
             //for ($j = 0; $j < $aantalj; $j++) {
-            for ($j = 0; $j < $horizontaleletters - count($zoekendwoord); $j++) {
+            $j=0;
                 $cehck = 0;
                 for ($i = 0; $i < count($zoekendwoord); $i++) {
-                    //if ($zoekendwoord[$i] == $woordenzoeker[$r + $i + $j][$k + $i + $j]) {
-                    if ($zoekendwoord[$i] == $woordenzoeker[$i + $j][$i + $j]) {
+                    if ($zoekendwoord[$i] == $woordenzoeker[$i][$i]) {
+                        echo "<pre>", PRINT_R($zoekendwoord), "</pre>";
                         $check = $check + 1;
-                        //$x = $k + $i + $j;
-                        //$y = $r + $i + $j;
-                        $x = $i + $j;
-                        $y = $i + $j;
+                        $x = $k + $i + $j;
+                        $y = $r + $i + $j;
                         $c = "x" . $x . "y" . $y;
                         array_push($cordinaat[$hetWoord], $c);
                     }
                 }
                 if ($check == count($zoekendwoord)) {
                     $gevondenWoordenCoordinaten[$hetWoord] = $cordinaat[$hetWoord];
-                    //$gevondenWoordenCoordinaten[$hetWoord] = array_slice($gevondenWoordenCoordinaten[$hetWoord], count($gevondenWoordenCoordinaten[$hetWoord]) - count($zoekendwoord));
+                    $gevondenWoordenCoordinaten[$hetWoord] = array_slice($gevondenWoordenCoordinaten[$hetWoord], count($gevondenWoordenCoordinaten[$hetWoord]) - count($zoekendwoord));
                 }
                 if ($check <> count($zoekendwoord)) {
                     for ($a = 0; $a < count($zoekendwoord); $a++) {
@@ -222,14 +223,15 @@ foreach ($gesplitst as $woordIndex => $zoekendwoord) {
                     }
                 }
             }
-        }
+        //}
     //}
 //}
 */
 
+            
+//echo "<pre>", PRINT_R($woordenzoeker), "</pre>";
 
-
-echo "<pre>", PRINT_R($gevondenWoordenCoordinaten), "</pre>";
+//echo "<pre>", PRINT_R($gevondenWoordenCoordinaten), "</pre>";
 ?>
 
 

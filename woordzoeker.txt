@@ -5,11 +5,11 @@ t--beeld--pe
 a---sameneog
 m-browsercto
 ppodcast-ikv
-edublog--nso
+edublogq-nso
 n---speleneg
--lepel----de
+-lepel---qde
 -palindrooml
-------------
+-----------q
 
 samen
 Lepel
@@ -28,4 +28,4 @@ desktop
 legovogel
 palindroom
 nepmats
-gmtbs
+gmtb
