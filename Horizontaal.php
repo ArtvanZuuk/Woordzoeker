@@ -1,8 +1,10 @@
 <?php
+
 //woorden zoeken Horizontaal
-function horizontaalZoeken($woordenzoeker, $gesplitst) {
+function horizontaalZoeken($woordenzoeker, $gesplitst, $gevondenWoordenCoordinaten) {
+    global $gevondenWoordenCoordinaten;
     $horizontaleletters = count($woordenzoeker[0]);
-    foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+    foreach ($gesplitst as $zoekendwoord) {
         $regelnummer = 0;
         foreach ($woordenzoeker as $woordenzoekerregel) {
             $regelnummer++;
@@ -53,6 +55,5 @@ function horizontaalZoeken($woordenzoeker, $gesplitst) {
             }
         }
     }
+    //echo "<pre>", PRINT_R($gevondenWoordenCoordinaten), "</pre>";
 }
-//echo "dit doet het";
-?>

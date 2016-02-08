@@ -1,8 +1,10 @@
 <?php
 //woorden zoeken van boven naar beneden
-function verticaalZoeken($woordenzoeker, $gesplitst) {
+function verticaalZoeken($woordenzoeker, $gesplitst, $gevondenWoordenCoordinaten) {
+    global $gevondenWoordenCoordinaten;
+    $horizontaleletters = count($woordenzoeker[0]);
     $verticaleletters = count($woordenzoeker);
-    foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+    foreach ($gesplitst as $zoekendwoord) {
         $hetWoord = implode('', $zoekendwoord);
         $aantalkeer = $verticaleletters - count($zoekendwoord) + 1;
         $cordinaat[$hetWoord] = array();
@@ -51,4 +53,5 @@ function verticaalZoeken($woordenzoeker, $gesplitst) {
             }
         }
     }
+    //echo "<pre>", PRINT_R($gevondenWoordenCoordinaten), "</pre>";
 }

@@ -67,9 +67,11 @@ foreach ($gesplitst as &$gzw) {
     $gzw = str_split($gzw);
 }
 
+
+/**
 //woorden zoeken Horizontaal
     $horizontaleletters = count($woordenzoeker[0]);
-    foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+    foreach ($gesplitst as $zoekendwoord) {
         $regelnummer = 0;
         foreach ($woordenzoeker as $woordenzoekerregel) {
             $regelnummer++;
@@ -123,7 +125,8 @@ foreach ($gesplitst as &$gzw) {
 
 //woorden zoeken van boven naar beneden
 $verticaleletters = count($woordenzoeker);
-foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+foreach ($gesplitst as $zoekendwoord) {
+    $horizontaleletters = count($woordenzoeker[0]);
     $hetWoord = implode('', $zoekendwoord);
     $aantalkeer = $verticaleletters - count($zoekendwoord) + 1;
     $cordinaat[$hetWoord] = array();
@@ -171,18 +174,18 @@ foreach ($gesplitst as $woordIndex => $zoekendwoord) {
     }
 }
 
-//eerste diagonaal, van links boven naar rechts onder
+//eerste diagonaal, van links boven naar rechts onder en alle andere kanten
 //i is letter nummer
 //k is aantal vakjes naar rechts
 //r is aantal vakjes naar beneden
-foreach ($gesplitst as $woordIndex => $zoekendwoord) {
+foreach ($gesplitst as $zoekendwoord) {
     $hetWoord = implode('', $zoekendwoord);
     $cordinaat[$hetWoord] = array();
     $verticaleletters = count($woordenzoeker);
     $horizontaleletters = count($woordenzoeker[0]);
     $schuineletters = min($horizontaleletters, $verticaleletters);
-    $aantalr = $verticaleletters - count($zoekendwoord);
-    $aantalk = $horizontaleletters - count($zoekendwoord);
+    $aantalr = $schuineletters - count($zoekendwoord);
+    $aantalk = $schuineletters - count($zoekendwoord);
     for ($r = 0; $r <= $aantalr; $r++) {
         for ($k = 0; $k <= $aantalk; $k++) {
             $check = 0;
@@ -264,15 +267,18 @@ foreach ($gesplitst as $woordIndex => $zoekendwoord) {
         }
     }
 }
-
-/**
-include 'Horizontaal.php';
-horizontaalZoeken($woordenzoeker, $gesplitst);
-include 'Verticaal.php';
-verticaalZoeken($woordenzoeker, $gesplitst);
-include 'Diagonaal.php';
-diagonaalZoeken($woordenzoeker, $gesplitst);
 */
+
+
+$gevondenWoordenCoordinaten = array();
+global $gevondenWoordenCoordinaten;
+include 'Horizontaal.php';
+horizontaalZoeken($woordenzoeker, $gesplitst, $gevondenWoordenCoordinaten);
+include 'Verticaal.php';
+verticaalZoeken($woordenzoeker, $gesplitst, $gevondenWoordenCoordinaten);
+include 'Diagonaal.php';
+diagonaalZoeken($woordenzoeker, $gesplitst, $gevondenWoordenCoordinaten);
+
 
 //echo "<pre>", PRINT_R($woordenzoeker), "</pre>";
 //echo "<pre>", PRINT_R($gevondenWoordenCoordinaten), "</pre>";
