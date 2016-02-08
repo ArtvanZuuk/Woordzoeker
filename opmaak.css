@@ -1,8 +1,11 @@
 @charset "UTF-8";
 #zoekwoorden {
     margin-left : auto;
-    margin-right : auto;
+    margin-right : 10%;
     width : 100px;
+    background-color : #FFFFFF;
+    float: right;
+    
 }
 body {
     margin : 0;
@@ -24,19 +27,33 @@ td {
 table{
     border: 2px solid black;
     height: auto;
-    margin : auto;
+    margin-left : auto;
+    float: left;
+    align: center;
+    
 }
 #tabel { 
     padding : 20px;
     width : 80%;
     height : auto;
-    background-color : #CAE1E8;
+    background-color : #FFFFFF;
     margin : auto;
     margin-top: 25px;
+    
+   
+  
 }
 div {
     text-align: center;
 }
 td.blauw{
-    color: blue;
+    color: orange;
+}
+#boven{
+    width: 100%;
+    height: 70px;
+    background-color : grey;
+    color: white;
+    text-align: center;
+    font-size: 3em;
 }
