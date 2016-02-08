@@ -1,7 +1,6 @@
 <?php
-
-//eerste diagonaal, van links boven naar rechts onder en alle andere kanten
-function diagonaalZoeken($woordenzoeker, $gesplitst, $gevondenWoordenCoordinaten) {
+//diagonaal, van links boven naar rechts onder en alle andere kanten
+function diagonaalZoeken($woordenzoeker, $gesplitst) {
     global $gevondenWoordenCoordinaten;
     foreach ($gesplitst as $zoekendwoord) {
         $hetWoord = implode('', $zoekendwoord);
@@ -9,8 +8,8 @@ function diagonaalZoeken($woordenzoeker, $gesplitst, $gevondenWoordenCoordinaten
         $verticaleletters = count($woordenzoeker);
         $horizontaleletters = count($woordenzoeker[0]);
         $schuineletters = min($horizontaleletters, $verticaleletters);
-        $aantalr = $verticaleletters - count($zoekendwoord);
-        $aantalk = $horizontaleletters - count($zoekendwoord);
+        $aantalr = $schuineletters - count($zoekendwoord);
+        $aantalk = $schuineletters - count($zoekendwoord);
         for ($r = 0; $r <= $aantalr; $r++) {
             for ($k = 0; $k <= $aantalk; $k++) {
                 //van linksboven naar rechtsonder

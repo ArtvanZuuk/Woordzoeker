@@ -1,6 +1,6 @@
 <?php
 //woorden zoeken van boven naar beneden
-function verticaalZoeken($woordenzoeker, $gesplitst, $gevondenWoordenCoordinaten) {
+function verticaalZoeken($woordenzoeker, $gesplitst) {
     global $gevondenWoordenCoordinaten;
     $horizontaleletters = count($woordenzoeker[0]);
     $verticaleletters = count($woordenzoeker);
