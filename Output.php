@@ -1,8 +1,6 @@
 <?php
-$woordenzoeker = file("woordzoeker_1.txt");
-//$woordenzoeker = file("woordzoeker.txt");
-
 include 'Splitsen.php';
+include 'BestandToevoegen.php';
 include 'MinnetjesNaarLetters.php';
 include 'Horizontaal.php';
 include 'Verticaal.php';
@@ -10,13 +8,13 @@ include 'Diagonaal.php';
 include 'ArrayNaarTabel.php';
 include 'PrintjQuery.php';
 include 'PrintZoekwoorden.php';
+voegBestandToe();
 splitsen($woordenzoeker);
 minnetjesNaarLetters($woordenzoeker);
 horizontaalZoeken($woordenzoeker, $gesplitst);
 verticaalZoeken($woordenzoeker, $gesplitst);
 diagonaalZoeken($woordenzoeker, $gesplitst);
 ?>
-
 
 <html>
     <head>
@@ -32,6 +30,9 @@ diagonaalZoeken($woordenzoeker, $gesplitst);
             <img src="vergrootglas.png" alt="vergrootglas" style="width:40px; height:40px;">
             Woordzoeker
         </div>
+        <?php
+        //bestandtoevoegenaanenuit();
+        ?>
         <div id="tabel">
             <?php echo build_table($woordenzoeker); ?>   
             <div id="zoekwoorden">

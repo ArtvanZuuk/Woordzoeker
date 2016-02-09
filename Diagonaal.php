@@ -7,9 +7,8 @@ function diagonaalZoeken($woordenzoeker, $gesplitst) {
         $cordinaat[$hetWoord] = array();
         $verticaleletters = count($woordenzoeker);
         $horizontaleletters = count($woordenzoeker[0]);
-        $schuineletters = min($horizontaleletters, $verticaleletters);
-        $aantalr = $schuineletters - count($zoekendwoord);
-        $aantalk = $schuineletters - count($zoekendwoord);
+        $aantalk = $horizontaleletters - count($zoekendwoord);
+        $aantalr = $verticaleletters - count($zoekendwoord);
         for ($r = 0; $r <= $aantalr; $r++) {
             for ($k = 0; $k <= $aantalk; $k++) {
                 //van linksboven naar rechtsonder
@@ -35,10 +34,10 @@ function diagonaalZoeken($woordenzoeker, $gesplitst) {
                 //van rechtsonder naar linksboven
                 $check = 0;
                 for ($i = 0; $i < count($zoekendwoord); $i++) {
-                    if ($zoekendwoord[$i] == $woordenzoeker[$schuineletters - $i - $r - 1][$schuineletters - $i - $k - 1]) {
+                    if ($zoekendwoord[$i] == $woordenzoeker[$verticaleletters - $i - $r - 1][$horizontaleletters - $i - $k - 1]) {
                         $check = $check + 1;
-                        $x = $schuineletters - $i - $k - 1;
-                        $y = $schuineletters - $i - $r - 1;
+                        $x = $horizontaleletters - $i - $k - 1;
+                        $y = $verticaleletters - $i - $r - 1;
                         $c = "x" . $x . "y" . $y;
                         array_push($cordinaat[$hetWoord], $c);
                     }
@@ -55,9 +54,9 @@ function diagonaalZoeken($woordenzoeker, $gesplitst) {
                 //van rechtsboven naar linksonder
                 $check = 0;
                 for ($i = 0; $i < count($zoekendwoord); $i++) {
-                    if ($zoekendwoord[$i] == $woordenzoeker[$i + $r][$schuineletters - $i - $k - 1]) {
+                    if ($zoekendwoord[$i] == $woordenzoeker[$i + $r][$horizontaleletters - $i - $k - 1]) {
                         $check = $check + 1;
-                        $x = $schuineletters - $i - $k - 1;
+                        $x = $horizontaleletters - $i - $k - 1;
                         $y = $i + $r;
                         $c = "x" . $x . "y" . $y;
                         array_push($cordinaat[$hetWoord], $c);
@@ -75,10 +74,10 @@ function diagonaalZoeken($woordenzoeker, $gesplitst) {
                 //van linksonder naar rechtsboven
                 $check = 0;
                 for ($i = 0; $i < count($zoekendwoord); $i++) {
-                    if ($zoekendwoord[$i] == $woordenzoeker[$schuineletters - $i - $r - 1][$i + $k]) {
+                    if ($zoekendwoord[$i] == $woordenzoeker[$verticaleletters - $i - $r - 1][$i + $k]) {
                         $check = $check + 1;
                         $x = $i + $k;
-                        $y = $schuineletters - $i - $r - 1;
+                        $y = $verticaleletters - $i - $r - 1;
                         $c = "x" . $x . "y" . $y;
                         array_push($cordinaat[$hetWoord], $c);
                     }

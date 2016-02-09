@@ -1,12 +1,4 @@
-
-
-
 <?php
-
-//function pre() {
-//   print "<pre>";
-//}
-
 function leesBestand() {
     $regels = array();
     if (isset($_FILES['file'])) {
