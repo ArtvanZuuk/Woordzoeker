@@ -1,19 +1,19 @@
 <?php
-include 'Splitsen.php';
-include 'BestandToevoegen.php';
-include 'MinnetjesNaarLetters.php';
-include 'Horizontaal.php';
-include 'Verticaal.php';
-include 'Diagonaal.php';
-include 'ArrayNaarTabel.php';
-include 'PrintjQuery.php';
-include 'PrintZoekwoorden.php';
+include 'Functies/Splitsen.php';
+include 'Functies/BestandToevoegen.php';
+include 'Functies/MinnetjesNaarLetters.php';
+include 'Functies/Horizontaal.php';
+include 'Functies/Verticaal.php';
+include 'Functies/Diagonaal.php';
+include 'Functies/ArrayNaarTabel.php';
+include 'Functies/PrintjQuery.php';
+include 'Functies/PrintZoekwoorden.php';
 voegBestandToe();
 splitsen($woordenzoeker);
 minnetjesNaarLetters($woordenzoeker);
-horizontaalZoeken($woordenzoeker, $gesplitst);
-verticaalZoeken($woordenzoeker, $gesplitst);
-diagonaalZoeken($woordenzoeker, $gesplitst);
+horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
+verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
+diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
 ?>
 
 <html>
@@ -31,12 +31,33 @@ diagonaalZoeken($woordenzoeker, $gesplitst);
             Woordzoeker
         </div>
         <?php
-        //bestandtoevoegenaanenuit();
+        bestandtoevoegenaanenuit();
         ?>
+        <div>
+            <form action="Output.php" method="post">
+                <input type="submit" name="Niveau1" value="Alleen van links naar rechts"></input>
+                <input type="submit" name="Niveau2" value="Aleen horizontaal"></input>
+                <input type="submit" name="Niveau3" value="Horizontaal en verticaal"></input>
+                <input type="submit" name="Niveau4" value="Horizontaal, verticaal en diagonaal"></input>
+            </form>
+            <?php
+            if (isset($_POST["Niveau1"])) {
+                $niveau = 1;
+            }
+            if (isset($_POST["Niveau2"])) {
+                $niveau = 2;
+            }
+            if (isset($_POST["Niveau3"])) {
+                $niveau = 3;
+            }
+            if (isset($_POST["Niveau4"])) {
+                $niveau = 4;
+            }
+            ?>
+        </div>
         <div id="tabel">
             <?php echo build_table($woordenzoeker); ?>   
             <div id="zoekwoorden">
-                </br>
                 <?php printZoekwoorden($zoekwoorden); ?>
             </div>
         </div>
