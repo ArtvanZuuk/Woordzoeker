@@ -11,9 +11,25 @@ include 'Functies/PrintZoekwoorden.php';
 voegBestandToe();
 splitsen($woordenzoeker);
 minnetjesNaarLetters($woordenzoeker);
-horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
-verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
-diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
+
+if (isset($_POST["Niveau1"])) {
+    $niveau = 1;
+}
+if (isset($_POST["Niveau2"])) {
+    $niveau = 2;
+}
+if (isset($_POST["Niveau3"])) {
+    $niveau = 3;
+}
+if (isset($_POST["Niveau4"])) {
+    $niveau = 4;
+}
+if(isset($niveau))
+{
+    horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
+    verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
+    diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
+}
 ?>
 
 <html>
@@ -41,20 +57,6 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
                 <input id="knoppen" type="submit" name="Niveau3" value="Horizontaal en verticaal"></input>
                 <input id="knoppen" type="submit" name="Niveau4" value="Horizontaal, verticaal en diagonaal"></input>
             </form>
-            <?php
-            if (isset($_POST["Niveau1"])) {
-                $niveau = 1;
-            }
-            if (isset($_POST["Niveau2"])) {
-                $niveau = 2;
-            }
-            if (isset($_POST["Niveau3"])) {
-                $niveau = 3;
-            }
-            if (isset($_POST["Niveau4"])) {
-                $niveau = 4;
-            }
-            ?>
         </div>
         <div id="tabel">
             <?php echo build_table($woordenzoeker); ?>   
