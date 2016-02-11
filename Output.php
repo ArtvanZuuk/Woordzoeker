@@ -20,6 +20,7 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
     <head>
         <title>Woordenzoeker</title>
         <meta charset="UTF-8">
+        <link rel="shortcut icon" type="image/ico" href="fav.ico"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="opmaak.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -35,10 +36,10 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
         ?>
         <div>
             <form action="Output.php" method="post">
-                <input type="submit" name="Niveau1" value="Alleen van links naar rechts"></input>
-                <input type="submit" name="Niveau2" value="Aleen horizontaal"></input>
-                <input type="submit" name="Niveau3" value="Horizontaal en verticaal"></input>
-                <input type="submit" name="Niveau4" value="Horizontaal, verticaal en diagonaal"></input>
+                <input id="knoppen" type="submit" name="Niveau1" value="Alleen van links naar rechts"></input>
+                <input id="knoppen" type="submit" name="Niveau2" value="Aleen horizontaal"></input>
+                <input id="knoppen" type="submit" name="Niveau3" value="Horizontaal en verticaal"></input>
+                <input id="knoppen" type="submit" name="Niveau4" value="Horizontaal, verticaal en diagonaal"></input>
             </form>
             <?php
             if (isset($_POST["Niveau1"])) {
@@ -60,6 +61,9 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
             <div id="zoekwoorden">
                 <?php printZoekwoorden($zoekwoorden); ?>
             </div>
+        </div>
+        <div id="namen">
+        By: Neville, Robby & Art
         </div>
     </body>
 </html>

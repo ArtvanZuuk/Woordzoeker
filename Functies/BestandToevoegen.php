@@ -19,6 +19,7 @@ function voegBestandToe() {
 
 function bestandtoevoegenaanenuit (){
     echo '<form action="Output.php" method="post" enctype="multipart/form-data">
+            <br/>
             <label for="file">Zoek een bestand:</label>
             <input type="file" name="file" id="file"/>
             <input type="submit" value="Submit">

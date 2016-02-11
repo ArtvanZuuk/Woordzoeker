@@ -12,6 +12,7 @@ body {
     padding : 0;
     background-color : #FFFFFF;
     font-family: Verdana,sans-serif;
+    text-align: center;
 }
 table, td {
     border-collapse: collapse;
@@ -39,9 +40,6 @@ table{
     background-color : #FFFFFF;
     margin : auto;
     margin-top: 25px;
-    
-   
-  
 }
 div {
     text-align: center;
@@ -52,8 +50,17 @@ td.blauw{
 #boven{
     width: 100%;
     height: 70px;
-    background-color : grey;
+    background-color : #F5A700;
     color: white;
     text-align: center;
     font-size: 3em;
+}
+#knoppen{
+ color: black;
+  border: 1px solid grey;
+  font-weight: normal;
+  background-color: #c6c6c6;
+}
+#namen{
+  vertical-align: text-bottom;
 }

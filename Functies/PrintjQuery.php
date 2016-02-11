@@ -7,7 +7,7 @@ function printjQuery($gevondenWoordenCoordinaten) {
         echo '<script type=text/javascript>';
         echo '$(document).ready(function () {';
         echo '$("div.' . $GEVONDENWOORDJE . '").mouseenter(function () {';
-        echo '$("td.' . $GEVONDENWOORDJE . '").css("background-color", "pink");';
+        echo '$("td.' . $GEVONDENWOORDJE . '").css("background-color", "#c6c6c6");';
         echo "});";
         echo '});';
         echo '</script>';
