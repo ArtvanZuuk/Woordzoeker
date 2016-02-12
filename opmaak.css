@@ -64,5 +64,14 @@ td.blauw{
   background-color: #c6c6c6;
 }
 #namen{
-  vertical-align: text-bottom;
+   position:absolute;
+   bottom: 0;
+   right: 10;
+   color: #c6c6c6;
+}
+#copy{
+   position:absolute;
+   bottom: 0;
+   left: 10;
+   color: #c6c6c6;
 }

@@ -1,4 +1,5 @@
 <?php
+
 function voegBestandToe() {
     global $woordenzoeker;
     if (isset($_FILES['file'])) {

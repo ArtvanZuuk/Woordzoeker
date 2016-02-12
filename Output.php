@@ -11,7 +11,7 @@ include 'Functies/PrintZoekwoorden.php';
 voegBestandToe();
 splitsen($woordenzoeker);
 minnetjesNaarLetters($woordenzoeker);
-
+$niveau = 4;
 if (isset($_POST["Niveau1"])) {
     $niveau = 1;
 }
@@ -58,14 +58,37 @@ if(isset($niveau))
                 <input id="knoppen" type="submit" name="Niveau4" value="Horizontaal, verticaal en diagonaal"></input>
             </form>
         </div>
+        <?php
+    if (isset($_POST["Niveau1"])) {
+        echo 'Hij zoekt nu alleen van links naar rechts';
+    }
+    if (isset($_POST["Niveau2"])) {
+        echo 'Hij zoekt nu alleen horizontaal';
+    }
+    if (isset($_POST["Niveau3"])) {
+        echo 'Hij zoekt nu horizontaal en verticaal';
+    }
+    if (isset($_POST["Niveau4"])) {
+        echo 'Hij zoekt nu horizontaal, verticaal en diagonaal';
+    }
+    if(isset($niveau))
+    {
+        horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
+        verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
+        diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
+    }
+?>
         <div id="tabel">
             <?php echo build_table($woordenzoeker); ?>   
             <div id="zoekwoorden">
                 <?php printZoekwoorden($zoekwoorden); ?>
             </div>
         </div>
+        <div id="copy">
+        Woordzoeker&copy; 
+        </div>
         <div id="namen">
-        By: Neville, Robby & Art
+            Neville, Robby & Art
         </div>
     </body>
 </html>
