@@ -11,7 +11,7 @@ class HorizontaalTest extends PHPUnit_Framework_TestCase {
         $wz[] = str_split("abc");
         $wz[] = str_split("xyz");
 
-        horizontaalZoeken($wz, $deWoorden);
+        horizontaalZoeken($wz, $deWoorden, 4);
         $this->assertEquals(array('x0y0', 'x1y0', 'x2y0'), $gevondenWoordenCoordinaten['abc']);
     }
 

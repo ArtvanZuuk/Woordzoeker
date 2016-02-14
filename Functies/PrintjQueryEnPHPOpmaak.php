@@ -1,9 +1,11 @@
 <?php
-function printjQuery($gevondenWoordenCoordinaten) {
-    print "<style>";
-    include_once 'opmaak.php';
-    print "</style>";
+
+function jQueryEnPhpOpmaak($gevondenWoordenCoordinaten, $zoekwoorden) {
+    include "Functies/opmaak.php";
+    klikKleuren($zoekwoorden);
+    zoekwoordenOnderlijnen($zoekwoorden);
     foreach ($gevondenWoordenCoordinaten as $GEVONDENWOORDJE => $gevondenwoord) {
+        //$i++;
         echo '<script type=text/javascript>';
         echo '$(document).ready(function () {';
         echo '$("div.' . $GEVONDENWOORDJE . '").mouseenter(function () {';
@@ -21,10 +23,19 @@ function printjQuery($gevondenWoordenCoordinaten) {
         echo '<script type=text/javascript>';
         echo '$(document).ready(function () {';
         echo '$("div.' . $GEVONDENWOORDJE . '").click(function () {';
-        echo '$("td.' . $GEVONDENWOORDJE . '").addClass("blauw");';
+        echo '$("td.' . $GEVONDENWOORDJE . '").toggleClass("klik' . strtoupper($GEVONDENWOORDJE) . '");';
         echo "});";
         echo "});";
         echo '</script>';
+        /**
+          echo '<script type=text/javascript>';
+          echo '$(document).ready(function () {';
+          echo '$("div.' . $GEVONDENWOORDJE . '").click(function () {';
+          echo '$("td.' . $GEVONDENWOORDJE . '").addClass("blauw");';
+          echo "});";
+          echo "});";
+          echo '</script>';
+         */
         foreach ($gevondenwoord as $cordinaat) {
             echo '<script type=text/javascript>';
             echo '$(document).ready(function () {';

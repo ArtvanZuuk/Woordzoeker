@@ -6,7 +6,7 @@ include 'Functies/Horizontaal.php';
 include 'Functies/Verticaal.php';
 include 'Functies/Diagonaal.php';
 include 'Functies/ArrayNaarTabel.php';
-include 'Functies/PrintjQuery.php';
+include 'Functies/PrintjQueryEnPHPOpmaak.php';
 include 'Functies/PrintZoekwoorden.php';
 voegBestandToe();
 splitsen($woordenzoeker);
@@ -24,8 +24,7 @@ if (isset($_POST["Niveau3"])) {
 if (isset($_POST["Niveau4"])) {
     $niveau = 4;
 }
-if(isset($niveau))
-{
+if (isset($niveau)) {
     horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
     verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
     diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
@@ -39,8 +38,9 @@ if(isset($niveau))
         <link rel="shortcut icon" type="image/ico" href="fav.ico"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="opmaak.css">
+        <!--<link rel="stylesheet" type="text/css" href="opmaak.php">-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <?php printjQuery($gevondenWoordenCoordinaten); ?>
+        <?php jQueryEnPhpOpmaak($gevondenWoordenCoordinaten, $zoekwoorden); ?>
     </head>
     <body>
         <div id="boven">
@@ -59,33 +59,32 @@ if(isset($niveau))
             </form>
         </div>
         <?php
-    if (isset($_POST["Niveau1"])) {
-        echo 'Hij zoekt nu alleen van links naar rechts';
-    }
-    if (isset($_POST["Niveau2"])) {
-        echo 'Hij zoekt nu alleen horizontaal';
-    }
-    if (isset($_POST["Niveau3"])) {
-        echo 'Hij zoekt nu horizontaal en verticaal';
-    }
-    if (isset($_POST["Niveau4"])) {
-        echo 'Hij zoekt nu horizontaal, verticaal en diagonaal';
-    }
-    if(isset($niveau))
-    {
-        horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
-        verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
-        diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
-    }
-?>
+        if (isset($_POST["Niveau1"])) {
+            echo 'Hij zoekt nu alleen van links naar rechts';
+        }
+        if (isset($_POST["Niveau2"])) {
+            echo 'Hij zoekt nu alleen horizontaal';
+        }
+        if (isset($_POST["Niveau3"])) {
+            echo 'Hij zoekt nu horizontaal en verticaal';
+        }
+        if (isset($_POST["Niveau4"])) {
+            echo 'Hij zoekt nu horizontaal, verticaal en diagonaal';
+        }
+        if (isset($niveau)) {
+            horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
+            verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
+            diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
+        }
+        ?>
         <div id="tabel">
-            <?php echo build_table($woordenzoeker); ?>   
+        <?php echo build_table($woordenzoeker); ?>   
             <div id="zoekwoorden">
-                <?php printZoekwoorden($zoekwoorden); ?>
+            <?php printZoekwoorden($zoekwoorden); ?>
             </div>
         </div>
         <div id="copy">
-        Woordzoeker&copy; 
+            Woordzoeker&copy; 
         </div>
         <div id="namen">
             Neville, Robby & Art
