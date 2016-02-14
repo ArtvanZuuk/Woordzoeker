@@ -1,6 +1,6 @@
--t--p-
+-t--a-
 -a--a-
--s--a-
+-s--p-
 
 tas
 aap

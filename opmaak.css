@@ -12,6 +12,7 @@ body {
     padding : 0;
     background-color : #FFFFFF;
     font-family: Verdana,sans-serif;
+    text-align: center;
 }
 table, td {
     border-collapse: collapse;
@@ -39,21 +40,38 @@ table{
     background-color : #FFFFFF;
     margin : auto;
     margin-top: 25px;
-    
-   
-  
 }
 div {
     text-align: center;
 }
 td.blauw{
-    color: orange;
+    color: #F5A700;
 }
 #boven{
     width: 100%;
     height: 70px;
-    background-color : grey;
+    background-color : #F5A700;
     color: white;
     text-align: center;
     font-size: 3em;
+    box-shadow: 0px 3px 10px #888888;
+}
+#knoppen{
+ color: black;
+  border: 1px solid grey;
+  font-weight: normal;
+  width: 17%;
+  background-color: #c6c6c6;
+}
+#namen{
+   position:absolute;
+   bottom: 0;
+   right: 10;
+   color: #c6c6c6;
+}
+#copy{
+   position:absolute;
+   bottom: 0;
+   left: 10;
+   color: #c6c6c6;
 }
