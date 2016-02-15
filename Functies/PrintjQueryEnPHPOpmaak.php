@@ -5,7 +5,6 @@ function jQueryEnPhpOpmaak($gevondenWoordenCoordinaten, $zoekwoorden) {
     klikKleuren($zoekwoorden);
     zoekwoordenOnderlijnen($zoekwoorden);
     foreach ($gevondenWoordenCoordinaten as $GEVONDENWOORDJE => $gevondenwoord) {
-        //$i++;
         echo '<script type=text/javascript>';
         echo '$(document).ready(function () {';
         echo '$("div.' . $GEVONDENWOORDJE . '").mouseenter(function () {';
@@ -27,15 +26,13 @@ function jQueryEnPhpOpmaak($gevondenWoordenCoordinaten, $zoekwoorden) {
         echo "});";
         echo "});";
         echo '</script>';
-        /**
-          echo '<script type=text/javascript>';
-          echo '$(document).ready(function () {';
-          echo '$("div.' . $GEVONDENWOORDJE . '").click(function () {';
-          echo '$("td.' . $GEVONDENWOORDJE . '").addClass("blauw");';
-          echo "});";
-          echo "});";
-          echo '</script>';
-         */
+        echo '<script>';
+        echo '$(document).ready(function () {';
+        echo '$("div.' . $GEVONDENWOORDJE . '").click(function () {';
+        echo '$("div.' . $GEVONDENWOORDJE . '").toggleClass("klik' . strtoupper($GEVONDENWOORDJE) . '");';
+        echo "});";
+        echo "});";
+        echo '</script>';
         foreach ($gevondenwoord as $cordinaat) {
             echo '<script type=text/javascript>';
             echo '$(document).ready(function () {';

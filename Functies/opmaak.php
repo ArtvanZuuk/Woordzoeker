@@ -6,6 +6,10 @@ function klikKleuren($zoekwoorden) {
         echo "td.klik" . strtoupper($class) . "{";
         echo "color: #F5A700;}";
     }
+    foreach ($zoekwoorden as $class) {
+        echo "div.klik" . strtoupper($class) . "{";
+        echo "color: #F5A700;}";
+    }
 }
 
 Function zoekwoordenOnderlijnen($zoekwoorden) {
