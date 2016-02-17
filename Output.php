@@ -71,11 +71,11 @@ if (isset($niveau)) {
         if (isset($_POST["Niveau4"])) {
             echo 'Hij zoekt nu horizontaal, verticaal en diagonaal';
         }
-        if (isset($niveau)) {
-            horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
-            verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
-            diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
-        }
+        //if (isset($niveau)) {
+            //horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
+            //verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
+            //diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
+        //}
         ?>
         <div id="tabel">
         <?php echo build_table($woordenzoeker); ?>   

@@ -10,6 +10,10 @@ function klikKleuren($zoekwoorden) {
         echo "div.klik" . strtoupper($class) . "{";
         echo "color: #F5A700;}";
     }
+    //foreach ($zoekwoorden as $class) {
+        //echo "div." . $class . "{";
+        //echo "text-align: left;}";
+    //}
 }
 
 Function zoekwoordenOnderlijnen($zoekwoorden) {
