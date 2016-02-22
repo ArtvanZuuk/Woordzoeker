@@ -1,7 +1,7 @@
 <?php
 
 $gevondenWoordenCoordinaten = array();
-include_once 'Verticaal.php';
+include_once 'Functies/Verticaal.php';
 
 class VerticaalTest extends PHPUnit_Framework_TestCase {
 
@@ -28,7 +28,7 @@ class VerticaalTest extends PHPUnit_Framework_TestCase {
         $wz[] = str_split("cqx");
         $wz[] = str_split("qqq");
 
-        vertiaalZoeken($wz, $deWoorden, 4);
+        verticaalZoeken($wz, $deWoorden, 4);
         $this->assertEquals(array('x0y1', 'x0y2', 'x0y3'), $gevondenWoordenCoordinaten['abc']);
         $this->assertEquals(array('x2y3', 'x2y2', 'x2y1'), $gevondenWoordenCoordinaten['xyz']);
     }
