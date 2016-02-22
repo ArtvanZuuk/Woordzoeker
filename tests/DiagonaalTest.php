@@ -30,16 +30,18 @@ class DiagonaalTest extends PHPUnit_Framework_TestCase {
     public function testDiagonaal2() {
         global $gevondenWoordenCoordinaten;
         $deWoorden[] = str_split("abc");
+         $deWoorden[] = str_split("pl");
         $deWoorden[] = str_split("xyz");
-        $wz[] = str_split("qqqx..");
-        $wz[] = str_split("aqz.y.");
+         $deWoorden[] = str_split("qwerty");
+        $wz[] = str_split("qqqxq.");
+        $wz[] = str_split("aqz.yw");
         $wz[] = str_split(".b...z");
         $wz[] = str_split("cqc...");
         $wz[] = str_split("qqqc..");
 
         diagonaalZoeken($wz, $deWoorden, 4);
         print_r($gevondenWoordenCoordinaten);
-        $this->assertTrue(4, count($gevondenWoordenCoordinaten));
+        $this->assertTrue(2, count($gevondenWoordenCoordinaten));
         $this->assertEquals(array('x0y3', 'x1y2', 'x2y1'), $gevondenWoordenCoordinaten['abc']);
         $this->assertEquals(array('x2y1', 'x1y2', 'x0y3'), $gevondenWoordenCoordinaten['cba']);
         $this->assertEquals(array('x0y1', 'x1y2', 'x2y3'), $gevondenWoordenCoordinaten['zbx']);
