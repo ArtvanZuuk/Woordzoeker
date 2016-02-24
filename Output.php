@@ -1,12 +1,9 @@
 <?php
 session_start();
-
-
-if ( empty( $_SESSION['test123'] )) { 
+if (empty($_SESSION['test123'])) {
     $_SESSION['test123'] = file("Woordzoekers/woordzoeker.txt");
-} 
+}
 $woordenzoeker = $_SESSION['test123'];
-
 include 'Functies/BestandToevoegen.php';
 include 'Functies/Splitsen.php';
 include 'Functies/MinnetjesNaarLetters.php';
@@ -22,7 +19,7 @@ splitsen($woordenzoeker);
 minnetjesNaarLetters($woordenzoeker);
 $niveau = 4;
 if (isset($_POST["submitknop"])) {
-   echo 'Kies een richting';
+    echo 'Kies een richting';
 }
 if (isset($_POST["Niveau1"])) {
     $niveau = 1;
@@ -57,9 +54,12 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
             <img src="vergrootglas.png" alt="vergrootglas" style="width:40px; height:40px;">
             Woordzoeker
         </div>
-        <?php
-        bestandtoevoegenaanenuit();
-        ?>
+        <form action="Output.php" method="post" enctype="multipart/form-data">
+            <br/>
+            <label for="file">Zoek een bestand:</label>
+            <input type="file" name="file" id="file"/>
+            <input class="submitknop" type="submit" onclick="drukhier()" value="Submit"> Dubbelklik om te bevestigen.
+        </form>
         <div>
             <form action="Output.php" method="post">
                 <input class= "knoppen" type="submit" name="Niveau1" value="Alleen van links naar rechts"></input>
@@ -68,6 +68,9 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
                 <input class= "knoppen" type="submit" name="Niveau4" value="Horizontaal, verticaal en diagonaal"></input>
             </form>
         </div>
+        
+        <form action="window.location.reload()" method="post">
+        
         <?php
         if (isset($_POST["Niveau1"])) {
             echo 'Hij zoekt nu alleen van links naar rechts';
@@ -82,7 +85,13 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
             echo 'Hij zoekt nu horizontaal, verticaal en diagonaal';
         }
         ?>
-
+            <?php
+if (isset($_POST['drukhier'])) {
+       function myFunction() {
+    location.reload();
+}
+    }
+    ?>
 
         <div id="tabel">
             <?php echo build_table($woordenzoeker); ?>   
@@ -94,7 +103,7 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
             Woordzoeker&copy; 
         </div>
         <div id="namen">
-            Neville, Robby & Art
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Neville, Robbie & Art</a> 
         </div>
     </body>
 </html>
