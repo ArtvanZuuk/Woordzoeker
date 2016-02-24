@@ -21,6 +21,9 @@ voegBestandToe();
 splitsen($woordenzoeker);
 minnetjesNaarLetters($woordenzoeker);
 $niveau = 4;
+if (isset($_POST["submitknop"])) {
+   echo 'Kies een richting';
+}
 if (isset($_POST["Niveau1"])) {
     $niveau = 1;
 }
@@ -57,9 +60,6 @@ diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
         <?php
         bestandtoevoegenaanenuit();
         ?>
-        <form action="Output.php" method="post">
-            <input type="submit" name="standaardbestand" value="Standaard"></input>
-        </form>
         <div>
             <form action="Output.php" method="post">
                 <input class= "knoppen" type="submit" name="Niveau1" value="Alleen van links naar rechts"></input>

@@ -1,4 +1,5 @@
 <?php
+
 function voegBestandToe() {
     global $woordenzoeker1;
     if (isset($_FILES['file'])) {
@@ -10,11 +11,9 @@ function voegBestandToe() {
             $woordenzoeker1 = FILE($_FILES["file"]["tmp_name"]);
             $_SESSION['test123'] = $woordenzoeker1;
         }
-    } 
-   if (isset($_POST['standaardbestand'])) {
-    $woordenzoeker = file("Woordzoekers/woordzoeker.txt");
+    }
 }
-}
+
 $woordenzoeker = $_SESSION['test123'];
 
 function bestandtoevoegenaanenuit() {
