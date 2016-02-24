@@ -1,6 +1,14 @@
 <?php
-include 'Functies/Splitsen.php';
+session_start();
+
+
+if ( empty( $_SESSION['test123'] )) { 
+    $_SESSION['test123'] = file("Woordzoekers/woordzoeker.txt");
+} 
+$woordenzoeker = $_SESSION['test123'];
+
 include 'Functies/BestandToevoegen.php';
+include 'Functies/Splitsen.php';
 include 'Functies/MinnetjesNaarLetters.php';
 include 'Functies/Horizontaal.php';
 include 'Functies/Verticaal.php';
@@ -8,6 +16,7 @@ include 'Functies/Diagonaal.php';
 include 'Functies/ArrayNaarTabel.php';
 include 'Functies/PrintjQueryEnPHPOpmaak.php';
 include 'Functies/PrintZoekwoorden.php';
+
 voegBestandToe();
 splitsen($woordenzoeker);
 minnetjesNaarLetters($woordenzoeker);
@@ -24,11 +33,9 @@ if (isset($_POST["Niveau3"])) {
 if (isset($_POST["Niveau4"])) {
     $niveau = 4;
 }
-if (isset($niveau)) {
-    horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
-    verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
-    diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
-}
+horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
+verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
+diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
 ?>
 
 <html>
@@ -50,12 +57,15 @@ if (isset($niveau)) {
         <?php
         bestandtoevoegenaanenuit();
         ?>
+        <form action="Output.php" method="post">
+            <input type="submit" name="standaardbestand" value="Standaard"></input>
+        </form>
         <div>
             <form action="Output.php" method="post">
-                <input id="knoppen" type="submit" name="Niveau1" value="Alleen van links naar rechts"></input>
-                <input id="knoppen" type="submit" name="Niveau2" value="Aleen horizontaal"></input>
-                <input id="knoppen" type="submit" name="Niveau3" value="Horizontaal en verticaal"></input>
-                <input id="knoppen" type="submit" name="Niveau4" value="Horizontaal, verticaal en diagonaal"></input>
+                <input class= "knoppen" type="submit" name="Niveau1" value="Alleen van links naar rechts"></input>
+                <input class= "knoppen" type="submit" name="Niveau2" value="Aleen horizontaal"></input>
+                <input class= "knoppen" type="submit" name="Niveau3" value="Horizontaal en verticaal"></input>
+                <input class= "knoppen" type="submit" name="Niveau4" value="Horizontaal, verticaal en diagonaal"></input>
             </form>
         </div>
         <?php
@@ -71,16 +81,13 @@ if (isset($niveau)) {
         if (isset($_POST["Niveau4"])) {
             echo 'Hij zoekt nu horizontaal, verticaal en diagonaal';
         }
-        //if (isset($niveau)) {
-            //horizontaalZoeken($woordenzoeker, $gesplitst, $niveau);
-            //verticaalZoeken($woordenzoeker, $gesplitst, $niveau);
-            //diagonaalZoeken($woordenzoeker, $gesplitst, $niveau);
-        //}
         ?>
+
+
         <div id="tabel">
-        <?php echo build_table($woordenzoeker); ?>   
+            <?php echo build_table($woordenzoeker); ?>   
             <div id="zoekwoorden">
-            <?php printZoekwoorden($zoekwoorden); ?>
+                <?php printZoekwoorden($zoekwoorden); ?>
             </div>
         </div>
         <div id="copy">

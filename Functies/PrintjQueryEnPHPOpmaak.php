@@ -41,4 +41,16 @@ function jQueryEnPhpOpmaak($gevondenWoordenCoordinaten, $zoekwoorden) {
             echo '</script>';
         }
     }
+    echo '<script type="text/javascript">';
+    echo '$(document).ready(function(){';
+    //Check if the current URL contains '#'
+    echo 'if("input.submitknop").click(function () {';
+    // Set the URL to whatever it was plus "#".
+    echo 'url = document.URL+"#";';
+    echo 'location = "#";';
+
+    //Reload the page
+    echo 'location.reload(true);';
+    echo "});";
+    echo '</script>';
 }
